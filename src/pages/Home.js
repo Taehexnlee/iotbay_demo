@@ -25,7 +25,7 @@ export default function Home() {
         <header>
       
       <section class="page-links">
-        <a href="index.html">Home</a>
+        <a href="http://localhost:3000/">Home</a>
         <Link className='btn btn-outline-light' to={`/hardwareHome`}>Hardware Prodcuts</Link>
         <Link className='btn btn-outline-light' to={`/softwareHome`}>Software Products</Link>
         <Link className='btn btn-outline-light' to={`/aboutUs`}>About us</Link>
