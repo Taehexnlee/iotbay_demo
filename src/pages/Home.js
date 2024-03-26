@@ -23,12 +23,12 @@ export default function Home() {
     <div className='container'>
         <div className='py-4'>
         <header>
-      
+  
       <section class="page-links">
-        <a href="index.html">Home</a>
-        <Link className='btn btn-outline-light' to={`/hardwareHome`}>Hardware Prodcuts</Link>
-        <Link className='btn btn-outline-light' to={`/softwareHome`}>Software Products</Link>
-        <Link className='btn btn-outline-light' to={`/aboutUs`}>About us</Link>
+        <a href="/">Home</a>
+        <Link to={`/hardwareHome`}>Hardware Prodcuts</Link>
+        <Link to={`/softwareHome`}>Software Products</Link>
+        <Link to={`/aboutUs`}>About us</Link>
       </section>
     </header>
 

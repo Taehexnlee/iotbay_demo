@@ -36,6 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
 /*
 Background Color: #171A21
 Secondary Background Color: #617073
@@ -129,13 +130,13 @@ body {
 }
 
 header {
-  background-color: #03B591;
+  background-color: #55d6aa;
 }
 
 header h1 {
   color: #ffffff;
   font-size: 30px;
-  font-weight: 900;
+  font-weight: 900; 
   text-align: left;
   margin-bottom: 0.5rem;
   padding-left: 5px;
@@ -206,7 +207,6 @@ color: #fff;
 font-size: 1rem;
 }
 
-
 .register-container{
   width: 600px;
   padding: 20px;
@@ -215,6 +215,3 @@ font-size: 1rem;
   margin: 100px auto;
 }
 
-.toslist {
-
-}
