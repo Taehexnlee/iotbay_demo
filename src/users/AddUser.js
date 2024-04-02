@@ -80,7 +80,7 @@ export default function AddUser() {
                             placeholder='Enter your DOB'
                             name='dob'
                             value={dob}
-                            required
+                        
                             onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <div className='mb-3'>
