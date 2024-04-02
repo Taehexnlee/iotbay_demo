@@ -15,30 +15,27 @@ export default function Login() {
         setUser({ ...user, [name]: value }); // Corrected to ensure value is set correctly
     };
 
+    // Example function within your Login component
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const validationErrors = validation(user);
-    
-        // Check if the validation returned an empty object, which implies no errors.
-        if (Object.keys(validationErrors).length === 0) {
-            try {
-                // Replace "/user" with "/authenticate" to match the backend endpoint for login.
-                const response = await axios.post("http://localhost:8080/authenticate", user);
-                
-                // Handle response.data which should contain the authentication token or user details.
-                console.log("Login successful:", response.data);
-                // For example, you might want to store the token in localStorage and navigate to the home page.
-                // localStorage.setItem('token', response.data.token);
-                
-                navigate("/"); // Navigate to the home page after successful login.
-            } catch (error) {
-                // If there's an error (e.g., 401 Unauthorized), handle it here.
-                console.error("Login error:", error);
-                setErrors({ ...errors, auth: "Login failed. Please check your credentials." });
+        try {
+            const response = await axios.post('http://localhost:8080/authenticate', user);
+            console.log(response.data);
+            localStorage.setItem('user', JSON.stringify(response.data)); // Example of saving user data
+            navigate('/'); // Adjust the route as needed
+        } catch (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.error("Authentication error:", error.response.data);
+                setErrors({...errors, auth: "Invalid credentials. Please try again."});
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error("Network error:", error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error('Error:', error.message);
             }
-        } else {
-            // If validation errors exist, update the errors state which will show the error messages on the form.
-            setErrors(validationErrors);
         }
     };
     
