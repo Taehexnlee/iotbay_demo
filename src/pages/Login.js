@@ -59,7 +59,7 @@ export default function Login() {
                     {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
                     <button type='submit' className='btn btn-success w-100'>Log in</button>
                     <p>You agree to our terms and policies.</p>
-                    <Link className='btn btn-outline-light' to={'/adduser'}>Register</Link>
+                    <Link className='btn btn-outline-dark' to={'/adduser'}>Register</Link>
                 </form>
             </div>
         </div>
