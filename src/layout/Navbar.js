@@ -24,20 +24,20 @@ export default function Navbar() {
       <a href="/hardwareHome">Hardware Products</a> <a href="/softwareHome">Software Products</a>
       <a href="/aboutUs">About us</a>
     </section>
-    <ul className="navbar-nav ms-auto">
+    <ul class="">
                             {!isAuthenticated() && (
                                 <>
-                                    <li className="nav-item">
-                                        <Link className='btn btn-outline-light me-2' to={'/login'}>Log in</Link>
+                                    <li class="">
+                                        <Link class="login-button" to={'/login'}>Log in</Link>
                                     </li>
-                                    <li className="nav-item">
-                                        <Link className='btn btn-outline-light' to={'/adduser'}>Register</Link>
+                                    <li class="register-button">
+                                        <Link class="register-button" to={'/adduser'}>Register</Link>
                                     </li>
                                 </>
                             )}
                             {isAuthenticated() && (
-                                <li className="nav-item">
-                                    <button onClick={handleLogout} className="btn btn-outline-light">Logout</button>
+                                <li class="">
+                                    <button onClick={handleLogout} class="">Logout</button>
                                 </li>
                             )}
                         </ul>
