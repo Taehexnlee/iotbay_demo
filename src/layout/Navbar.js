@@ -4,25 +4,17 @@ import IoTBayLogo from '../pages/Images/IoTBay.png';
 
 export default function Navbar() {
   return (
-    <div>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary d-flex">
-            <div className="container-fluid">
-            <Link className="navbar-brand" to="/">
-            <img src={IoTBayLogo} alt="IoTBay" class="Logo-Image"/> 
-          </Link>
-
-                <section class="page-links">
-                  <a class='navbar-home' href="/">Home</a>
-                  <Link class='navbar-hardware' to={`/hardwareHome`}>Hardware Products</Link>
-                  <Link class='navbar-software' to={`/softwareHome`}>Software Products</Link>
-                  <Link class='navbar-aboutus' to={`/aboutUs`}>About us</Link>
-                 </section>
-
-                <Link class='login-button' to={'/login'}>Log in</Link>
-                <Link class='register-button' to={'/adduser'}>Register</Link>
-                
-            </div>
-        </nav>
+    <nav> <div class="logo">
+      <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img> </div>
+    <section class="page-links">
+      <a href="/">Home</a>
+      <a href="/hardwareHome">Hardware Products</a> <a href="/softwareHome">Software Products</a>
+      <a href="/aboutUs">About us</a>
+    </section>
+    <div class="auth-buttons"> <a href="/login" class="login-button">Log in</a>
+      <a href="/adduser" class="register-button">Register</a>
     </div>
+  </nav>
+
   )
 }
