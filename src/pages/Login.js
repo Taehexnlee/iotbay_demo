@@ -41,7 +41,7 @@ export default function Login() {
 
     return (
         <div className='d-flex justify-content-center align-items-center bg-white'>
-            <div className='bg-dark p-3 row'>
+            <div className='bg-white p-3 row'>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor='email'><strong>Email</strong></label>
