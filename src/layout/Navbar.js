@@ -24,24 +24,24 @@ export default function Navbar() {
       <a href="/hardwareHome">Hardware Products</a> <a href="/softwareHome">Software Products</a>
       <a href="/aboutUs">About us</a>
     </section>
-    <ul class="">
+    
+    { <ul class="auth-buttons">
                             {!isAuthenticated() && (
                                 <>
-                                    <li class="">
+                                    <li>
                                         <Link class="login-button" to={'/login'}>Log in</Link>
                                     </li>
-                                    <li class="register-button">
+                                    <li>
                                         <Link class="register-button" to={'/adduser'}>Register</Link>
                                     </li>
                                 </>
                             )}
                             {isAuthenticated() && (
-                                <li class="">
-                                    <button onClick={handleLogout} class="">Logout</button>
+                                <li>
+                                    <button onClick={handleLogout} class="login-button">Logout</button>
                                 </li>
                             )}
                         </ul>
-  </nav>
-
-  )
 }
+  </nav> 
+)}
