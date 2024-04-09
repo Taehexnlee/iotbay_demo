@@ -1,8 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 import IoTBayLogo from '../pages/Images/IoTBay.png';
 
 export default function Navbar() {
+  let navigate = useNavigate();
+
+    // Check if user is authenticated
+    const isAuthenticated = () => localStorage.getItem('user') != null;
+
+    // Handle logout
+    const handleLogout = () => {
+        // Remove the user from local storage to log them out
+        localStorage.removeItem('user');
+        // Redirect to login page
+        navigate('/login');
+    };
+
   return (
     <nav> <div class="logo">
       <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img> </div>

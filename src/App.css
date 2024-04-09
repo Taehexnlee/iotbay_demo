@@ -21,11 +21,11 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-link {
-  color: #61dafb;
+  color: black;
 }
 
 @keyframes App-logo-spin {
@@ -52,7 +52,7 @@ body {
   color: #ffffff;
   text-align: center;
   margin-top: 1rem;
-  background: #617073;
+  background: black;
   font-weight: bold;
   font-size: larger;
   margin-left: 6rem;
@@ -132,7 +132,7 @@ body {
  padding: 14px 50px; 
  text-decoration: none;
  font-size: 17px; 
- box-shadow: inset 0 0 0 0 #EAC435;
+ box-shadow: inset 0 0 0 0 black;
  transition: color .3s ease-in-out, box-shadow .2s ease-in-out;
  font-weight: bold;
  display: flex;
@@ -158,14 +158,14 @@ body {
 
 
 header {
-  background-color: #55d6aa;
+  background-color: black;
 }
 
 header h1 {
   color: #ffffff;
   font-size: 30px;
-  font-weight: 900; 
-  text-align: left;
+  font-weight: 600; 
+  text-align: center;
   margin-bottom: 0.5rem;
   padding-left: 5px;
 }
@@ -173,8 +173,8 @@ header h1 {
 .login-container { 
   width: 300px; 
   padding: 20px; 
-  background-color: #ffffff; 
-  border-radius: 5px; box-shadow: 0 0 10px #EAC435; 
+  background-color: black; 
+  border-radius: 5px; box-shadow: 0 0 10px black; 
   margin: 100px auto; 
 }
 
@@ -206,7 +206,7 @@ header h1 {
 button { 
   width: 100%; 
   padding: 10px; 
-  background-color: #03B591; 
+  background-color: black; 
   color: #ffffff; 
   border: none; 
   border-radius: 5px; 
@@ -236,7 +236,7 @@ font-size: 1rem;
   width: 600px;
   padding: 20px;
   background-color: #ffffff;
-  border-radius: 5px; box-shadow: 0 0 10px #EAC435;
+  border-radius: 5px; box-shadow: 0 0 10px black;
   margin: 100px auto;
 } */
 
@@ -251,6 +251,7 @@ font-size: 1rem;
   border-radius: 5px;
   margin-left: 10px; 
 }
+
 
 .register-button {
   background-color: #28a745;
