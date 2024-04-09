@@ -39,7 +39,7 @@ export default function AddUser() {
                     <label htmlFor='email' className='form-label'>
                         Email
                     </label>
-                    <input type={"text"}
+                    <input type={"email"}
                             className='form-control'
                             placeholder='Enter your email'
                             name='email'
@@ -80,7 +80,7 @@ export default function AddUser() {
                             placeholder='Enter your DOB'
                             name='dob'
                             value={dob}
-                        
+                            required
                             onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <div className='mb-3'>
@@ -92,6 +92,7 @@ export default function AddUser() {
                             placeholder='Enter your password'
                             name='password'
                             value={password}
+                            required
                             onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <div className='mb-3'>
@@ -115,6 +116,7 @@ export default function AddUser() {
                             placeholder='Enter your street Number'
                             name='streetNumber'
                             value={streetNumber}
+                            required
                             onChange={(e)=>onInputChange(e)}/>
                 </div>
                 <div className='mb-3'>
