@@ -29,16 +29,17 @@ export default function Navbar() {
                             {!isAuthenticated() && (
                                 <>
                                     <li>
-                                        <Link class="login-button" to={'/login'}>Log in</Link>
+                                    <a href="/login" class="login-button">Log in</a>
                                     </li>
                                     <li>
-                                        <Link class="register-button" to={'/adduser'}>Register</Link>
+                                      <a href="/adduser" class="register-button">Register</a>
                                     </li>
                                 </>
                             )}
                             {isAuthenticated() && (
                                 <li>
-                                    <button onClick={handleLogout} class="login-button">Logout</button>
+                                  {/* <button onClick={handleLogout} class="login-button">Logout</button>  */}
+                                  <a onClick={handleLogout} class="login-button">Log in</a>
                                 </li>
                             )}
                         </ul>
