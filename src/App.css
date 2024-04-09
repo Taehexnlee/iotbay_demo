@@ -120,9 +120,8 @@ body {
 
 .page-links {
   display: flex; 
-  
+  justify-content: flex-start;
   padding: 0;
-  margin-left: -23rem;
 }
 
 /* .page-links a {
@@ -137,6 +136,7 @@ body {
  font-weight: bold;
  display: flex;
 } */
+
 .page-links a {
   display: block;
   text-decoration: none; 
