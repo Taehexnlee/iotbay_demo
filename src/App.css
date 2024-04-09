@@ -37,14 +37,6 @@
   }
 }
 
-/*
-Background Color: #171A21
-Secondary Background Color: #617073
-Header Color: #03B591
-Hover Color: #EAC435
-Text Color: #ffffff
-*/
-
 body { 
   font-family: 'Times New Roman', Times, serif, sans-serif; 
   background-color: #171A21; 
@@ -105,8 +97,8 @@ body {
 .page-links {
  display: flex;
  justify-content: center;
- margin-left: 2rem;
- margin-right: 2rem;
+ margin-left: 1rem;
+ margin-right: 1rem;
 }
 
 .page-links a {
@@ -116,18 +108,18 @@ body {
  padding: 14px 50px; 
  text-decoration: none;
  font-size: 17px; 
- box-shadow: inset 0 0 0 0 #171A21;
- margin: 0 -.25rem;
+ box-shadow: inset 0 0 0 0 #EAC435;
  transition: color .3s ease-in-out, box-shadow .2s ease-in-out;
- font-weight: 700;
+ font-weight: bold;
  display: flex;
 }
 
 .page-links a:hover {
  font-weight: bold; 
- box-shadow: inset 0 -50px 0 0 #EAC435;
+ box-shadow: inset 0 -50px 0 0 #EAC435; /*(TRBL)*/
  color: #ffffff;
 }
+
 
 header {
   background-color: #55d6aa;
@@ -184,13 +176,11 @@ button {
   border-radius: 5px; 
   cursor: pointer; 
   font-size: 16px;
-
 }
 
 button:hover { 
   background-color: #03B591; 
 }
-
 
 footer {
   text-align: center;
@@ -198,7 +188,6 @@ footer {
 background: rgba(0, 0, 0, 0.5);
   
 }
-
 
 .copyright {
 margin-bottom: 5px;
@@ -215,3 +204,23 @@ font-size: 1rem;
   margin: 100px auto;
 }
 
+.Logo-Image{
+  width: 200px; 
+  height: 100px;
+}
+
+.login-button,
+.register-button {
+  /* Adjust button styles as desired (e.g., background color, border, padding) */
+  background-color: #3b5998;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px; /* Optional spacing between buttons */
+}
+
+.register-button {
+  /* Optional styling for the register button (e.g., different color) */
+  background-color: #28a745;
+}
