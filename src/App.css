@@ -91,7 +91,7 @@ body {
   padding: 14px 50px;
   text-decoration: none;
   font-size: 17px;
-  box-shadow: inset 0 0 0 0 #EAC435; /* Updated colors */
+  box-shadow: inset 0 0 0 0 black; /* Updated colors */
   margin: 0 -.25rem;
   transition: color .3s ease-in-out, box-shadow .2s ease-in-out;
   font-weight: bold;
@@ -102,7 +102,7 @@ body {
 .login-button:hover,
 .register-button:hover  {
   font-weight: bold;
-  box-shadow: inset 0 -50px 0 0 #EAC435;
+  box-shadow: inset 0 -50px 0 0 black;
   color: #ffffff;
 }
 
@@ -120,9 +120,8 @@ body {
 
 .page-links {
   display: flex; 
-  
+  justify-content: flex-start;
   padding: 0;
-  margin-left: -23rem;
 }
 
 /* .page-links a {
@@ -137,6 +136,7 @@ body {
  font-weight: bold;
  display: flex;
 } */
+
 .page-links a {
   display: block;
   text-decoration: none; 
@@ -145,14 +145,14 @@ body {
   margin-right: 1rem; 
   font-size: 20px;
   font-weight: bold;
-  box-shadow: inset 0 0 0 0 #EAC435; /* Initial box-shadow */
+  box-shadow: inset 0 0 0 0 black; /* Initial box-shadow */
   transition: box-shadow 0.2s ease-in-out; /* Transition for box-shadow */
 } 
 
 
 .page-links a:hover {
   font-weight: bold;     /* Redundant, already set in the base style */
-  box-shadow: inset 0 -50px 0 0 #EAC435; /* Hover box-shadow effect */
+  box-shadow: inset 0 -50px 0 0 black; /* Hover box-shadow effect */
   color: #ffffff;        /* Likely desired on hover */
 }
 
@@ -264,7 +264,7 @@ nav {
   align-items: center;
   padding-right: 1rem;
   padding-left: 1rem;
-  background-color: #55d6aa; 
+  background-color: rgb(38, 204, 198); 
   color: #fff;
 }
 
