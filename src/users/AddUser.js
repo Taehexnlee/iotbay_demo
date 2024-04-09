@@ -88,8 +88,9 @@ export default function AddUser() {
                                value={user.lastName}
                                onChange={onInputChange}/>
                     </div>
-                    <div className='mb-3'>
-    <label htmlFor='DOB' className='form-label'>
+                    
+<div className='mb-3'>
+    <label htmlFor='dob' className='form-label'>
         Date of Birth
     </label>
     <input type="date"
@@ -97,11 +98,11 @@ export default function AddUser() {
            placeholder='Enter your DOB'
            name='dob'
            value={user.dob}
-           required
            onChange={onInputChange}/>
 </div>
+
 <div className='mb-3'>
-    <label htmlFor='Password' className='form-label'>
+    <label htmlFor='password' className='form-label'>
         Password
     </label>
     <input type="password"
@@ -109,11 +110,11 @@ export default function AddUser() {
            placeholder='Enter your password'
            name='password'
            value={user.password}
-           required
            onChange={onInputChange}/>
 </div>
+
 <div className='mb-3'>
-    <label htmlFor='PhoneNumber' className='form-label'>
+    <label htmlFor='phoneNumber' className='form-label'>
         Phone Number
     </label>
     <input type="number"
@@ -121,9 +122,9 @@ export default function AddUser() {
            placeholder='Enter your phone number'
            name='phoneNumber'
            value={user.phoneNumber}
-           required
            onChange={onInputChange}/>
 </div>
+
 <div className='mb-3'>
     <label htmlFor='streetNumber' className='form-label'>
         Street Number
@@ -133,9 +134,9 @@ export default function AddUser() {
            placeholder='Enter your street Number'
            name='streetNumber'
            value={user.streetNumber}
-           required
            onChange={onInputChange}/>
 </div>
+
 <div className='mb-3'>
     <label htmlFor='postCode' className='form-label'>
         Post Code
@@ -147,6 +148,7 @@ export default function AddUser() {
            value={user.postCode}
            onChange={onInputChange}/>
 </div>
+
                     <div className='mb-3'>
                         <label htmlFor='gender' className='form-label'>Gender</label>
                         <select className={`form-control ${error && !user.gender ? 'is-invalid' : ''}`} 
