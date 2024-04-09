@@ -276,6 +276,7 @@ nav {
 .logo-image {
   height: 100%;   /* Make the image take full height of its container (.logo) */
   object-fit: contain; /* Prevent image distortion while maintaining aspect ratio */
+  /* margin-right: -10rem; */
 }
 
 .nav-links {
