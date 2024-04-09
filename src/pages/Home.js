@@ -27,7 +27,7 @@ export default function Home() {
     </header>
 
     <main>
-      <p class="hometext">Lets go babyyyy</p>
+      <p class="hometext">Lets go babyyyy This is the HOME PAGE - evan</p>
     </main>
 
     <footer>
