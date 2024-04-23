@@ -64,9 +64,11 @@ export default function Login() {
                     
                     {/* Display authentication error message */}
                     {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
-                    <button type='submit' className='btn btn-success w-100'>Log in</button>
+                    <button type='submit' className='btn btn-success w-100'>Confirm</button>
                     <p>You agree to our terms and policies.</p>
                     <Link className='btn btn-outline-dark' to={'/success'}>Apple Pay</Link>
+                    <Link className='btn btn-outline-dark' to={'/success'}>MasterCard</Link>
+                    <Link className='btn btn-outline-dark' to={'/success'}>Bpay</Link>
                 </form>
             </div>
         </div>
