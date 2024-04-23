@@ -21,8 +21,9 @@ export default function Navbar() {
       <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img> </div>
     <section class="page-links">
       <a href="/">Home</a>
-      <a href="/hardwareHome">Hardware Products</a> <a href="/softwareHome">Software Products</a>
-      <a href="/aboutUs">About us</a>
+      <a href="/adminView">Hardware Products</a> 
+      <a href="/softwareHome">Software Products</a>
+      <a href="/aboutUs">Payment</a>
     </section>
     
     { <ul class="auth-buttons">
