@@ -77,7 +77,7 @@ export default function AdminView() {
                 <li><a href="/aboutus">About Us</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">Terms</a></li>
-                <li><a href="/adminPage">Admin Page</a></li>
+                <li><a href="/adminPage">Admin Login</a></li>
             </ul>
         </div>
     </footer>

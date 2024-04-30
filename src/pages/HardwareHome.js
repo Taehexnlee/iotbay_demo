@@ -6,13 +6,8 @@ import IoTBayLogo from '../pages/Images/IoTBay.png';
 
 export default function HardwareHome() {
   return (
-    <div className='container'>
-      <div className='py-4'>
-        <header>
-          
-        </header>
-
-        <main>
+    <main>
+      <body className='mainHomeCSS'>
           <p class="hometext">Hardware Home</p>
           <div class="search-bar">
             <form action="#">
@@ -64,8 +59,19 @@ export default function HardwareHome() {
         </div>
         </div>
         </div>
+        </body>
+        <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ISD Vantablack</p> 
+            <ul class="footer-links">
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="/adminPage">Admin Login</a></li>
+            </ul>
+        </div>
+    </footer>
         </main>
-      </div>
-    </div>
+
   )
 }
