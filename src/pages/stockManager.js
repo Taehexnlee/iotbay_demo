@@ -3,14 +3,8 @@ import { Link } from 'react-router-dom'
 
 export default function AdminView() {
   return (
-    <div className='container'>
-      <div className='py-4'>
-        <header>
-         
-        </header>
-
-        <main>
-        <body>
+    <main>
+        <body className='bodymainCSS'>
     
     <h1>Stock Manager</h1>
     <h2 class="welcAdm">Welcome, Admin Name</h2>
@@ -30,6 +24,8 @@ export default function AdminView() {
                     <th>Product Code</th>
                     <th>Price</th>
                     <th>Quantity</th>
+                    <th>Add to website</th>
+                    <th>Delete from website</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,7 +55,7 @@ export default function AdminView() {
                 </tr>
                 <tr>
                     <td>add more products</td>
-                    <td>add as many as we have below</td>
+                    <td>add as many as we need</td>
                     <td>$X.X</td>
                     <td>X</td>
                     <td> 
@@ -73,7 +69,8 @@ export default function AdminView() {
         </table>
     </div>
 
-    <footer class="site-footer">
+</body>
+<footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 ISD Vantablack</p> 
             <ul class="footer-links">
@@ -84,9 +81,6 @@ export default function AdminView() {
             </ul>
         </div>
     </footer>
-</body>
 </main>
-</div>
-</div>
-  )
+)
 }

@@ -37,6 +37,7 @@
   }
 }
 
+/*Page Layout*/
 body {
   font-family: 'Times New Roman', Times, serif, sans-serif;
   background-color: #171A21;
@@ -46,6 +47,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.bodymainCSS{
+  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .hometext {
@@ -364,6 +370,7 @@ nav {
 }
 
 
+/*FOOTER*/
 footer {
 text-align: center;
 margin-top: auto;
@@ -371,16 +378,15 @@ background: rgba(0, 0, 0, 0.5);
   
 } 
 
-/*FOOTER*/
 .site-footer {
   background-color: #222;
   color: #fff;
-  padding: 15px;
+  padding-top: 10px;
   text-align: center;
 }
 
 .footer-content {
-    max-width: 1000px; /* Adjust width as needed */
+    max-width: 1400px; /* Adjust width as needed */
     margin: 0 auto;
     display: flex; /* Allow flexible layout */
     justify-content: space-between; /* Space between elements */
@@ -406,7 +412,7 @@ background: rgba(0, 0, 0, 0.5);
 .choice-button {
   background-color: rgb(38, 204, 198); /* Example color */
   color: white;
-  padding: 12px 20px;
+  padding: 12px 20px; 
   border: none;
   border-radius: 5px;
   margin: 5px; /* Spacing between buttons */
@@ -441,6 +447,7 @@ background: rgba(0, 0, 0, 0.5);
 .add-button, 
 .delete-button{
   background-color: red;
+  font-size: 17px;
 }
 
 .add-button:hover, 
