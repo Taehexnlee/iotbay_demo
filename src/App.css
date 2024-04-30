@@ -420,14 +420,15 @@ background: rgba(0, 0, 0, 0.5);
 /* Product Grid CSS */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* Adjust for number of columns */
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* Adjust for number of columns */
+  margin-top: 3rem;
+  gap: 30px;
 }
 
 .product {
    text-align: center;
-   border: 1px solid #ddd;
-   padding: 10px;
+   /* border: 1px solid #ddd; */
+   padding: 20px; /*TRBL*/
 }
 
 .product img {
