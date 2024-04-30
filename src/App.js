@@ -15,7 +15,8 @@ import SoftwareHome from './pages/SoftwareHome';
 import Welcome from './pages/Welcome';
 import Payment from './pages/Payment';
 import Success from './pages/success';
-import AdminView from './pages/adminView';
+import StockManager from './pages/stockManager';
+import AdminPage from './pages/adminPage';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
 
       <Routes>
         <Route exact path ="/" element={<Home/>}/>
-        <Route exact path ="/hardwareHome" element={<AdminView/>}/>
+        <Route exact path ="/stockManager" element={<StockManager/>}/>
+        <Route exact path ="/adminpage" element={<AdminPage/>}/>
         <Route exact path ="/softwareHome" element={<SoftwareHome/>}/>
         <Route exact path ="/aboutUs" element={<Payment/>}/>
         <Route excat path ="/login" element={<Login/>}/>

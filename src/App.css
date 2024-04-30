@@ -214,16 +214,7 @@ button {
   font-size: 16px;
 }
 
-/* button:hover { 
-  background-color: #03B591; 
-} */
 
-footer {
-  text-align: center;
-  margin-top: auto;
-background: rgba(0, 0, 0, 0.5);
-  
-}
 
 .copyright {
 margin-bottom: 5px;
@@ -317,4 +308,111 @@ nav {
   text-decoration: none;
   padding: 0.5rem 1rem;
   margin-left: 1rem;
+}
+
+/*SEARCH BAR*/
+.search-bar {
+  width: 800px; /* Adjust the width as desired */
+  margin: 20px auto; /* Centers the search bar */
+}
+
+.search-bar form {
+  display: flex; /* Enables positioning elements */
+  
+}
+
+.search-bar input[type="text"] {
+  width: calc(100% + 600px); /* Calculate width dynamically */ 
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px; 
+}
+
+.search-bar button {
+  background-color: rgb(38, 204, 198); /* Example color - change as needed */
+  color: white;
+  padding: 5px 10px; /* Smaller padding for a smaller button */
+  border: none;
+  border-radius: 10px; /* Rounded right corners */
+  margin-left: 10px; /* Move 10px to the right */
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: rgb(31, 167, 163); /* Slightly darker shade on hover */
+}
+
+.stock-table table {
+  width: 100%; 
+  border-collapse: collapse;
+}
+
+.stock-table th,
+.stock-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.welcAdm{
+  color: #000000;
+  font-size: 20px;
+  font-weight: 600; 
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding-left: 5px;
+}
+
+
+footer {
+/* text-align: center; */
+margin-top: auto;
+background: rgba(0, 0, 0, 0.5);
+  
+} 
+/*FOOTER*/
+.site-footer {
+  background-color: #222;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.footer-content {
+    max-width: 1000px; /* Adjust width as needed */
+    margin: 0 auto;
+    display: flex; /* Allow flexible layout */
+    justify-content: space-between; /* Space between elements */
+    align-items: center;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin: 0 10px; 
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/*adminPage Buttons*/
+.admin-choice-buttons{
+  display: flex; /* Arranges buttons horizontally */
+  justify-content: center; /* Centers buttons (optional) */
+}
+
+.choice-button {
+  background-color: rgb(38, 204, 198); /* Example color */
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 5px; /* Spacing between buttons */
+  text-decoration: none; /* Removes link underline */
+  cursor: pointer;
+}
+
+.choice-button:hover {
+  background-color: rgb(31, 167, 163); /* Slightly darker on hover */
 }

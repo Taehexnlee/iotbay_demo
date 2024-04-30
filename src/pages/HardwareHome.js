@@ -10,7 +10,13 @@ export default function HardwareHome() {
         </header>
 
         <main>
-          <p class="hometext">Hardware</p>
+          <p class="hometext">Hardware Home</p>
+          <div class="search-bar">
+            <form action="#">
+            <input type="text" placeholder="Search..." name="search"/>
+            <button type="submit">Search</button>
+            </form>
+          </div>
         </main>
       </div>
     </div>
