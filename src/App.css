@@ -365,16 +365,17 @@ nav {
 
 
 footer {
-/* text-align: center; */
+text-align: center;
 margin-top: auto;
 background: rgba(0, 0, 0, 0.5);
   
 } 
+
 /*FOOTER*/
 .site-footer {
   background-color: #222;
   color: #fff;
-  padding: 20px;
+  padding: 15px;
   text-align: center;
 }
 
@@ -434,4 +435,15 @@ background: rgba(0, 0, 0, 0.5);
 .product img {
    max-width: 100%; 
    height: auto; 
+}
+
+/*Add/Delete buttons*/
+.add-button, 
+.delete-button{
+  background-color: red;
+}
+
+.add-button:hover, 
+.delete-button:hover{
+  background-color: rgb(225, 0, 0);
 }

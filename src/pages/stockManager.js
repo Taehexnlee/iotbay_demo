@@ -38,27 +38,42 @@ export default function AdminView() {
                     <td>ABC123</td>
                     <td>$19.99</td>
                     <td>25</td>
+                    <td> 
+                    <button class="add-button">Add</button>
+                    </td> 
+                    <td>
+                    <button class="delete-button">Delete</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>Product B</td>
                     <td>XYZ987</td>
                     <td>$35.50</td>
                     <td>10</td>
+                    <td> 
+                    <button class="add-button">Add</button>
+                    </td> 
+                    <td>
+                    <button class="delete-button">Delete</button>
+                    </td>
                 </tr>
                 <tr>
                     <td>add more products</td>
                     <td>add as many as we have below</td>
                     <td>$X.X</td>
                     <td>X</td>
+                    <td> 
+                    <button class="add-button">Add</button>
+                    </td> 
+                    <td>
+                    <button class="delete-button">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-</body>
-        </main>
-
-        <footer class="site-footer">
+    <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 ISD Vantablack</p> 
             <ul class="footer-links">
@@ -69,8 +84,9 @@ export default function AdminView() {
             </ul>
         </div>
     </footer>
-
-      </div>
-    </div>
+</body>
+</main>
+</div>
+</div>
   )
 }

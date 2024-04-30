@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+
+// import images here
 import IoTBayLogo from '../pages/Images/IoTBay.png';
 
 export default function SoftwareHome() {
@@ -9,7 +11,7 @@ export default function SoftwareHome() {
       <header>
        
       </header>
-
+      
       <main>
         <p class="hometext">Software Home</p>
         <div class="search-bar">
