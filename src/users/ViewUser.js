@@ -1,54 +1,38 @@
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
 
-export default function ViewUser() {
+const ViewUser = () => {
+  const [users, setUsers] = useState([]);
 
-    const [user,setUser] =useState({
-        name: "" ,
-        username:""
-        ,email:""
-    })
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/users'); // Endpoint to fetch all users
+        setUsers(response.data);
+      } catch (error) {
+        console.error('Error fetching users:', error);
+      }
+    };
 
-    const {id} =useParams();
-
-    useEffect(()=> {
-        loadUsers()
-    },[])
-
-    const loadUsers = async() => 
-    {
-        const result =await axios.get(`http://localhost:8080/user/${id}`)
-        setUser(result.data)
-    }
+    fetchUsers();
+  }, []);
 
   return (
-    <div className='container'>
-        <div className='row'>
-            <div className='col-md-6 offset-md-3 border rounded p-4 mt-2 shadow'>
-                <h2 className='text-center m-4'>Detail User </h2>
-                <div className='card'>
-                    <div className='card-header'>
-                        Details of User id: {user.id}
-                        <ul className='list-group list-group-flush'>
-                            <li className='list-group-item'>
-                                <b>Name: </b>
-                                {user.name}
-                            </li>
-                            <li className='list-group-item'>
-                                <b>User Name: </b>
-                                {user.username}
-                            </li>
-                            <li className='list-group-item'>
-                                <b>Email: </b>
-                                {user.email}
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <Link className="btn btn-primary my-2" to ={"/"}>Back to Home</Link>
-            </div>
-        </div>
+    <div>
+      <h1>User List</h1>
+      <ul>
+        {users.map(user => (
+          <li key={user.id}>
+            <strong>ID:</strong> {user.id} <br />
+            <strong>Email:</strong> {user.email} <br />
+            <strong>First Name:</strong> {user.firstName} <br />
+            <strong>Last Name:</strong> {user.lastName} <br />
+            {/* Add more fields as needed */}
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
+
+export default ViewUser;

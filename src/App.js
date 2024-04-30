@@ -13,6 +13,8 @@ import Login from './pages/Login';
 import HardwareHome from './pages/HardwareHome';
 import SoftwareHome from './pages/SoftwareHome';
 import Welcome from './pages/Welcome';
+import Edit from './pages/Edit';
+
 function App() {
   return (
     <div className="App">
@@ -23,9 +25,10 @@ function App() {
         <Route exact path ="/" element={<Home/>}/>
         <Route exact path ="/hardwareHome" element={<HardwareHome/>}/>
         <Route exact path ="/softwareHome" element={<SoftwareHome/>}/>
-        <Route exact path ="/aboutUs" element={<AboutUs/>}/>
+        <Route exact path ="/aboutUs" element={<Edit/>}/>
         <Route excat path ="/login" element={<Login/>}/>
         <Route excat path="/welcome" element={<Welcome />} />
+        <Route excat path="/edit" element={<Edit />} />
 
         <Route excat path ="/adduser" element={<AddUser/>}/>
         <Route excat path ="/edituser/:id" element={<EditUser/>}/>
