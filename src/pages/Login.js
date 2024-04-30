@@ -40,6 +40,8 @@ export default function Login() {
     };
 
     return (
+        <main>
+        <body className='mainHomeCSS'>
         <div className='d-flex justify-content-center align-items-center bg-white'>
             <div className='bg-white p-3 row'>
                 <form onSubmit={handleSubmit}>
@@ -63,5 +65,18 @@ export default function Login() {
                 </form>
             </div>
         </div>
+        </body>
+        <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ISD Vantablack</p> 
+            <ul class="footer-links">
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="/adminPage">Admin Login</a></li>
+            </ul>
+        </div>
+    </footer>
+      </main>
     );
 }
