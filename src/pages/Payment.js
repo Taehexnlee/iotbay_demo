@@ -1,41 +1,45 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import validation from '../users/LoginValidation';
 
-export default function Login() {
+// Import a validation function specific to payment details
+import paymentValidation from '../pages/PaymentValidation';
+
+export default function Payment() {
     let navigate = useNavigate();
-    const [user, setUser] = useState({
-        email: "",
-        password: ""
+    const [paymentDetails, setPaymentDetails] = useState({
+        cardNumber: "",
+        expirationDate: "",
+        cvv: ""
     });
-    // Initialize errors state to also handle authentication errors
-    const [errors, setErrors] = useState({auth: ''});
+    const [errors, setErrors] = useState({
+        cardNumberError: "",
+        expirationDateError: "",
+        cvvError: ""
+    });
 
     const handleInput = (event) => {
         const { name, value } = event.target;
-        setUser({ ...user, [name]: value });
+        setPaymentDetails({ ...paymentDetails, [name]: value });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Clear previous authentication errors
-        setErrors({ ...errors, auth: '' });
-
+        // Perform payment validation
+        const validationErrors = paymentValidation(paymentDetails);
+        if (validationErrors) {
+            setErrors(validationErrors);
+            return;
+        }
+        
         try {
-            const response = await axios.post('http://localhost:8080/authenticate', user);
-            // Assuming successful authentication if no error is thrown
-            localStorage.setItem('user', JSON.stringify({ email: user.email }));
-            navigate('/welcome'); // Navigate to the Welcome page
+            // Here you would send the payment details to your server
+            const response = await axios.post('http://localhost:8080/payment', paymentDetails);
+            // Assuming successful payment if no error is thrown
+            navigate('/payment-success'); // Navigate to a success page
         } catch (error) {
-            // Handle authentication errors
-            if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-                // Handle incorrect credentials
-                setErrors({ ...errors, auth: "Incorrect email or password. Please try again." });
-            } else {
-                // Handle other errors such as network issues
-                setErrors({ ...errors, auth: "An error occurred. Please try again later." });
-            }
+            // Handle payment errors
+            setErrors({ ...errors, payment: "Payment failed. Please try again later." });
         }
     };
 
@@ -44,28 +48,26 @@ export default function Login() {
             <div className='bg-white p-3 row'>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
-                        <label htmlFor='card'><strong>Credit Card</strong></label>
-                        <input type='card' placeholder='Enter Card' name='card'
+                        <label htmlFor='cardNumber'><strong>Credit Card</strong></label>
+                        <input type='text' placeholder='Enter Card' name='cardNumber'
                                onChange={handleInput} className='form-control rounded'/>
-                        {errors.email && <span className='text-danger'>{errors.email}</span>}
+                        {errors.cardNumberError && <span className='text-danger'>{errors.cardNumberError}</span>}
                     </div>
                     <div className='mb-3'>
-                        <label htmlFor='expiration'><strong>Expiration</strong></label>
-                        <input type='expiration' placeholder='Enter Expiration' name='Expiration'
+                        <label htmlFor='expirationDate'><strong>Expiration</strong></label>
+                        <input type='text' placeholder='Enter Expiration' name='expirationDate'
                                onChange={handleInput} className='form-control rounded'/>
-                        {errors.password && <span className='text-danger'>{errors.password}</span>}
+                        {errors.expirationDateError && <span className='text-danger'>{errors.expirationDateError}</span>}
                     </div>
                     <div className='mb-3'>
-                        <label htmlFor='CVV'><strong>CVV</strong></label>
-                        <input type='CVV' placeholder='Enter CVV' name='CVV'
+                        <label htmlFor='cvv'><strong>CVV</strong></label>
+                        <input type='text' placeholder='Enter CVV' name='cvv'
                                onChange={handleInput} className='form-control rounded'/>
-                        {errors.password && <span className='text-danger'>{errors.password}</span>}
+                        {errors.cvvError && <span className='text-danger'>{errors.cvvError}</span>}
                     </div>
                     
-                    {/* Display authentication error message */}
                     {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
                     <button type='submit' className='btn btn-success w-100'>Confirm</button>
-                    <p>You agree to our terms and policies.</p>
                     <Link className='btn btn-outline-dark' to={'/success'}>Apple Pay</Link>
                     <Link className='btn btn-outline-dark' to={'/success'}>MasterCard</Link>
                     <Link className='btn btn-outline-dark' to={'/success'}>Bpay</Link>
