@@ -18,10 +18,13 @@ export default function Navbar() {
 
   return (
     <nav> <div class="logo">
-      <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img> </div>
+      <Link to="/">
+  <img src={IoTBayLogo} alt="IoTBay" className="logo-image" />
+      </Link> 
+    </div>
     <section class="page-links">
       <a href="/">Home</a>
-      <a href="/stockManager">Hardware Products</a> 
+      <a href="/hardwareHome">Hardware Products</a> 
       <a href="/softwareHome">Software Products</a>
       <a href="/aboutUs">Payment</a>
     </section>

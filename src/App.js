@@ -29,11 +29,11 @@ function App() {
         <Route exact path ="/stockManager" element={<StockManager/>}/>
         <Route exact path ="/adminpage" element={<AdminPage/>}/>
         <Route exact path ="/softwareHome" element={<SoftwareHome/>}/>
+        <Route exact path ="/hardwareHome" element={<HardwareHome/>}/>
         <Route exact path ="/aboutUs" element={<Payment/>}/>
         <Route excat path ="/login" element={<Login/>}/>
         <Route excat path="/welcome" element={<Welcome />} />
-        <Route excat path="/success" element={<Success />} />
-        
+        <Route excat path="/success" element={<Success />} />        
 
         <Route excat path ="/adduser" element={<AddUser/>}/>
         <Route excat path ="/edituser/:id" element={<EditUser/>}/>
