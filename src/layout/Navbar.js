@@ -1,9 +1,9 @@
-import React from 'react'
-import { Link,useNavigate } from 'react-router-dom'
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import IoTBayLogo from '../pages/Images/IoTBay.png';
 
-export default function Navbar() {
-  let navigate = useNavigate();
+const Navbar = () => {
+    let navigate = useNavigate();
 
     // Check if user is authenticated
     const isAuthenticated = () => localStorage.getItem('user') != null;
@@ -16,33 +16,43 @@ export default function Navbar() {
         navigate('/login');
     };
 
-  return (
-    <nav> <div class="logo">
-      <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img> </div>
-    <section class="page-links">
-      <a href="/">Home</a>
-      <a href="/hardwareHome">Hardware Products</a> <a href="/softwareHome">Software Products</a>
-      <a href="/aboutUs">About us</a>
-    </section>
-    
-    { <ul class="auth-buttons">
-                            {!isAuthenticated() && (
-                                <>
-                                    <li>
-                                    <a href="/login" class="login-button">Log in</a>
-                                    </li>
-                                    <li>
-                                      <a href="/adduser" class="register-button">Register</a>
-                                    </li>
-                                </>
-                            )}
-                            {isAuthenticated() && (
-                                <li>
-                                  {/* <button onClick={handleLogout} class="login-button">Logout</button>  */}
-                                  <a onClick={handleLogout} class="login-button">Log in</a>
-                                </li>
-                            )}
-                        </ul>
-}
-  </nav> 
-)}
+    return (
+        <nav>
+            <div className="logo">
+                <img src={IoTBayLogo} alt="IoTBay" className="logo-image" />
+            </div>
+            <section className="page-links">
+                <Link to="/">Home</Link>
+                <Link to="/hardwareHome">Hardware Products</Link>
+                <Link to="/softwareHome">Software Products</Link>
+                <Link to="/aboutUs">About us</Link>
+            </section>
+            <ul className="auth-buttons">
+                {!isAuthenticated() ? (
+                    <>
+                        <li>
+                            <Link to="/login" className="login-button">Log in</Link>
+                        </li>
+                        <li>
+                            <Link to="/adduser" className="register-button">Register</Link>
+                        </li>
+                    </>
+                ) : (
+                    <>
+                        <li>
+                            <Link to="/view" className="login-button view-account-button">My Account</Link>
+                        </li>
+                        <li>
+                            <Link to="/edit" className="login-button edit-account-button">Edit ACcount</Link>
+                        </li>
+                        <li>
+                            <button onClick={handleLogout} className="login-button logout-button">Logout</button>
+                        </li>
+                    </>
+                )}
+            </ul>
+        </nav>
+    );
+};
+
+export default Navbar;
