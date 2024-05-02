@@ -62,15 +62,28 @@ const EditUser = () => {
 
     // If everything is filled out, make the API call to update user details
     try {
-      await axios.put(`http://localhost:8080/user/${user.id}`, user);
-      // Redirect to view user page after successful update
-      navigate(`/viewuser/${user.id}`);
+      const response = await axios.put(
+        `http://localhost:8080/user/${user.id}`,
+        user
+      );
+      navigate(`/view`);
+      console.log("Response from server:", response.data);
+      return response.data;
     } catch (error) {
-      // Handle the error appropriately
-      console.error("There was an error updating user details:", error);
+      console.error("Error updating user:", error);
+      throw error;
     }
   };
 
+  const handleDeleteAccount = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/user/${user.id}`);
+      localStorage.clear(); // Clear user-related data from local storage
+      navigate("/"); // Redirect to the login page
+    } catch (error) {
+      console.error("Error deleting user account:", error);
+    }
+  };
 
   if (!user) {
     return null; // Render nothing until user data is fetched
@@ -249,7 +262,7 @@ const EditUser = () => {
                 onChange={(e) => onInputChange(e)}
               />
               <label htmlFor="terms" className="form-check-label">
-                Agree to Terms of Service
+                Accept Changes?
               </label>
             </div>
             {/* Submit button */}
@@ -257,9 +270,13 @@ const EditUser = () => {
               Submit
             </button>
             {/* Cancel link */}
-            <Link className="btn btn-danger btn-block mx-2" to={`/View`}>
-              Cancel
-            </Link>
+            <button
+              type="button"
+              className="btn btn-danger btn-block"
+              onClick={handleDeleteAccount}
+            >
+              Delete Account
+            </button>
           </form>
         </div>
       </div>
