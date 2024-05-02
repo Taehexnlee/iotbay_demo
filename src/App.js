@@ -13,12 +13,9 @@ import Login from './pages/Login';
 import HardwareHome from './pages/HardwareHome';
 import SoftwareHome from './pages/SoftwareHome';
 import Welcome from './pages/Welcome';
-<<<<<<< Updated upstream
-=======
 import View from './pages/View';
 import Edit from './pages/Edit';
 
->>>>>>> Stashed changes
 function App() {
   return (
     <div className="App">
@@ -30,15 +27,10 @@ function App() {
         <Route exact path ="/hardwareHome" element={<HardwareHome/>}/>
         <Route exact path ="/softwareHome" element={<SoftwareHome/>}/>
         <Route exact path ="/aboutUs" element={<AboutUs/>}/>
-<<<<<<< Updated upstream
-        <Route excat path ="/login" element={<Login/>}/>
-        <Route excat path="/welcome" element={<Welcome />} />
-=======
         <Route exact path ="/login" element={<Login/>}/>
         <Route exact path="/welcome" element={<Welcome />} />
         <Route exact path="/view" element={<View />} />
         <Route exact path="/edit" element={<Edit />} />
->>>>>>> Stashed changes
 
         <Route exact path ="/adduser" element={<AddUser/>}/>
         <Route exact path ="/edituser/:id" element={<EditUser/>}/>

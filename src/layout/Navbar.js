@@ -43,7 +43,7 @@ const Navbar = () => {
                             <Link to="/view" className="login-button view-account-button">My Account</Link>
                         </li>
                         <li>
-                            <Link to="/edit" className="login-button edit-account-button">Edit ACcount</Link>
+                            <Link to="/edit" className="login-button edit-account-button">Edit Account</Link>
                         </li>
                         <li>
                             <button onClick={handleLogout} className="login-button logout-button">Logout</button>
