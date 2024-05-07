@@ -57,6 +57,9 @@ export default function AddUser() {
   };
 
   return (
+    
+        <main>
+            <body>
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
@@ -248,20 +251,18 @@ export default function AddUser() {
         </div>
       </div>
     </div>
-    </body>
-        <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2024 ISD Vantablack</p> 
-            <ul class="footer-links">
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="/adminPage">Admin Login</a></li>
-            </ul>
-        </div>
-    </footer>
-      </main>
-  );
+  );</body>
+  <footer class="site-footer">
+  <div class="footer-content">
+      <p>&copy; 2024 ISD Vantablack</p> 
+      <ul class="footer-links">
+          <li><a href="/aboutus">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="/adminPage">Admin Login</a></li>
+      </ul>
+  </div>
+</footer>
+</main>
+)
 }
-
-// Add this to your CSS file or within a <style

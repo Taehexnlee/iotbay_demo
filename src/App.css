@@ -322,6 +322,10 @@ nav {
   margin-left: 1rem;
 }
 
+.auth-buttons li { 
+  list-style-type: none; 
+}
+
 /*SEARCH BAR*/
 .search-bar {
   width: 800px; /* Adjust the width as desired */
