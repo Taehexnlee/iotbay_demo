@@ -8,7 +8,7 @@ export default function AboutUs() {
   
   <section id="about-us">
     <div class="container">
-      <h1 classname="abus-title">About Us</h1>
+      <h1 class="abus-title">About Us</h1>
 
       <div class="about-content">
         <div class="image-block">

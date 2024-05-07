@@ -487,6 +487,10 @@ background: rgba(0, 0, 0, 0.5);
   padding: 30px 0px 30px 0;
 }
 
+.abus-title{
+  margin-bottom: 2rem;
+}
+
 .about-content {
   display: flex; /* Arrange image and text side by side */
   margin-bottom: 30px;

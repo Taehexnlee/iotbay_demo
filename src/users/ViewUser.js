@@ -36,7 +36,7 @@ const ViewUsers = () => {
   return (
     <div>
       <h2>Account Details</h2>
-      <ul classname = "accountDetails">
+      <ul class="accountDetails">
         {filteredUsers.map((user) => (
           <li key={user.id}>
             Email: {user.email} <br />
