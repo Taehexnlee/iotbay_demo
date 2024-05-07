@@ -16,6 +16,8 @@ import Success from './pages/success';
 import StockManager from './pages/stockManager';
 import AdminPage from './pages/adminPage';
 import PaymentAdd from './pages/PaymentAdd';
+import View from './pages/View';
+import Edit from './pages/Edit';
 
 function App() {
   return (
@@ -34,10 +36,15 @@ function App() {
         <Route excat path="/welcome" element={<Welcome />} />
         <Route excat path="/success" element={<Success />} />
         <Route excat path="/PaymentAdd" element={<PaymentAdd />} />        
+        <Route exact path ="/aboutUs" element={<AboutUs/>}/>
+        <Route exact path ="/login" element={<Login/>}/>
+        <Route exact path="/welcome" element={<Welcome />} />
+        <Route exact path="/view" element={<View />} />
+        <Route exact path="/edit" element={<Edit />} />
 
-        <Route excat path ="/adduser" element={<AddUser/>}/>
-        <Route excat path ="/edituser/:id" element={<EditUser/>}/>
-        <Route excat path ="/viewuser/:id" element={<ViewUser/>}/>
+        <Route exact path ="/adduser" element={<AddUser/>}/>
+        <Route exact path ="/edituser/:id" element={<EditUser/>}/>
+        <Route exact path ="/viewuser/:id" element={<ViewUser/>}/>
 
       </Routes>
       </Router>
