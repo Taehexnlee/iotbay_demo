@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import paymentValidation from '../pages/PaymentValidation';
 
 export default function Payment() {
     let navigate = useNavigate();
+    const [isSelected, setIsSelected] = useState(false);
+    
     const [paymentDetails, setPaymentDetails] = useState({
         cardNumber: "",
         expirationDate: "",
@@ -39,6 +41,10 @@ export default function Payment() {
         }
     };
 
+    const toggleSelected = () => {
+        setIsSelected(!isSelected);
+    };
+
     return (
         <div className='d-flex justify-content-center align-items-center bg-white'>
             <div className='bg-white p-3 row'>
@@ -64,9 +70,9 @@ export default function Payment() {
                     
                     {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
                     <button type='submit' className='btn btn-success w-100'>Confirm</button>
-                    <Link className='btn btn-outline-dark' to={'/success'}>Visa</Link>
-                    <Link className='btn btn-outline-dark' to={'/success'}>MasterCard</Link>
-                    <Link className='btn btn-outline-dark' to={'/success'}>Bpay</Link>
+                    <button type="button" className={`btn btn-outline-dark ${isSelected ? 'selected' : ''}`} onClick={toggleSelected}>Visa</button>
+                    <button type="button" className={`btn btn-outline-dark ${isSelected ? 'selected' : ''}`} onClick={toggleSelected}>MasterCard</button>
+                    <button type="button" className={`btn btn-outline-dark ${isSelected ? 'selected' : ''}`} onClick={toggleSelected}>Bpay</button>
                 </form>
             </div>
         </div>

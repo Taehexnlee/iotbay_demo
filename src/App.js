@@ -15,6 +15,7 @@ import Payment from './pages/PaymentPage';
 import Success from './pages/success';
 import StockManager from './pages/stockManager';
 import AdminPage from './pages/adminPage';
+import PaymentAdd from './pages/PaymentAdd';
 
 function App() {
   return (
@@ -28,10 +29,11 @@ function App() {
         <Route exact path ="/adminpage" element={<AdminPage/>}/>
         <Route exact path ="/softwareHome" element={<SoftwareHome/>}/>
         <Route exact path ="/hardwareHome" element={<HardwareHome/>}/>
-        <Route exact path ="/aboutUs" element={<Payment/>}/>
+        <Route exact path ="/PaymentPage" element={<Payment/>}/>
         <Route excat path ="/login" element={<Login/>}/>
         <Route excat path="/welcome" element={<Welcome />} />
-        <Route excat path="/success" element={<Success />} />        
+        <Route excat path="/success" element={<Success />} />
+        <Route excat path="/PaymentAdd" element={<PaymentAdd />} />        
 
         <Route excat path ="/adduser" element={<AddUser/>}/>
         <Route excat path ="/edituser/:id" element={<EditUser/>}/>

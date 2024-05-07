@@ -26,7 +26,7 @@ export default function Navbar() {
       <a href="/">Home</a>
       <a href="/hardwareHome">Hardware Products</a> 
       <a href="/softwareHome">Software Products</a>
-      <a href="/aboutUs">Payment</a>
+      <a href="/PaymentPage">Payment</a>
     </section>
     
     { <ul class="auth-buttons">

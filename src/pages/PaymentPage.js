@@ -10,7 +10,7 @@ const PaymentOptions = () => {
     fetchPaymentOptions();
   }, []);
 
-  const handleAddPaymentOption = () => {
+  const handleAddPayment = () => {
     navigate('/paymentAdd');
   };
   const fetchPaymentOptions = async () => {
@@ -43,7 +43,7 @@ const PaymentOptions = () => {
       <h2>Payments</h2>
       <h3>Payment options</h3>
       {renderPaymentOptions()}
-      <button onClick={handleAddPaymentOption} className="btn btn-outline-dark">Add payment option</button>
+      <button onClick={handleAddPayment} className="btn btn-primary">Add Payment</button>
     </div>
   );
 };

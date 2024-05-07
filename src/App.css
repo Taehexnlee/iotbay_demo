@@ -460,3 +460,13 @@ background: rgba(0, 0, 0, 0.5);
 .delete-button:hover{
   background-color: rgb(225, 0, 0);
 }
+
+/*Payment method button*/
+.btn-payment-dark {
+  font-weight: normal;
+  transition: font-weight 0.3s ease;
+}
+
+.btn-payment-dark.selected {
+  font-weight: bold;
+}
