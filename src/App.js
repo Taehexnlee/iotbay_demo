@@ -8,6 +8,7 @@ import AddUser from './users/AddUser';
 import EditUser from './users/EditUser';
 import ViewUser from './users/ViewUser';
 import Login from './pages/Login';
+import AboutUs from './pages/AboutUs';
 import HardwareHome from './pages/HardwareHome';
 import SoftwareHome from './pages/SoftwareHome';
 import Welcome from './pages/Welcome';
@@ -33,6 +34,7 @@ function App() {
         <Route exact path ="/hardwareHome" element={<HardwareHome/>}/>
         <Route exact path ="/PaymentPage" element={<Payment/>}/>
         <Route excat path ="/login" element={<Login/>}/>
+        <Route excat path ="/AboutUs" element={<AboutUs/>}/>
         <Route excat path="/welcome" element={<Welcome />} />
         <Route excat path="/success" element={<Success />} />
         <Route excat path="/PaymentAdd" element={<PaymentAdd />} />        
