@@ -7,6 +7,7 @@ export default function Home() {
     
     useEffect(()=>{
        loadUsers();
+       //deleteUser();
     },[])
 
     const loadUsers =async() =>{
@@ -29,6 +30,7 @@ export default function Home() {
     <main>
       <p class="hometext">You can browse products, login, or register</p>
     </main>
+
 
     <footer>
       <p class="copyright">Vantablack Group 2024</p>

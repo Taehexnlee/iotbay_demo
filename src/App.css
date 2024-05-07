@@ -470,3 +470,9 @@ background: rgba(0, 0, 0, 0.5);
 .btn-payment-dark.selected {
   font-weight: bold;
 }
+
+.selected {
+  background-color: #6c757d;
+  color: white;
+}
+
