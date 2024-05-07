@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export default function AboutUs() {
+export default function PaymentSuccess() {
   return (
     <div className='container'>
       <div className='py-4'>
@@ -10,7 +10,7 @@ export default function AboutUs() {
         </header>
 
         <main>
-          <p class="hometext">About us</p>
+          <p class="hometext">Payment Success!</p>
         </main>
 
       </div>
