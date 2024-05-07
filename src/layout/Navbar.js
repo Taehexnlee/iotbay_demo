@@ -41,7 +41,7 @@ const Navbar = () => {
                 ) : (
                     <>
                         <li>
-                            <Link to="/PaymentPage">Payment</Link>
+                            <Link to="/PaymentPage"className="login-button view-account-button">Payment</Link>
                         </li>
                         <li>
                             <Link to="/view" className="login-button view-account-button">My Account</Link>
