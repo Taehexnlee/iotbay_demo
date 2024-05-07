@@ -470,3 +470,65 @@ background: rgba(0, 0, 0, 0.5);
 .btn-payment-dark.selected {
   font-weight: bold;
 }
+<<<<<<< Updated upstream
+=======
+
+.selected {
+  background-color: #6c757d;
+  color: white;
+}
+
+
+/* About Us Section */
+#about-us {
+  background-color: #f5f5f5; 
+  padding: 30px 0px 30px 0;
+}
+
+.abus-title{
+  margin-bottom: 2rem;
+}
+
+.about-content {
+  display: flex; /* Arrange image and text side by side */
+  margin-bottom: 30px;
+}
+
+.image-block {
+  flex: 1; /* Allow images to take up available space */
+  margin-right: 30px; /* Space between image and text */
+  margin-left: 30px;
+}
+
+.image-block img {
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 8px;
+}
+
+.larger-image-block {
+  max-width: 150%; /* Increase size by 50% */
+  height: auto;     /* Maintain aspect ratio */
+}
+
+.text-block {
+  flex: 2; /* Allow text to take more space  */
+}
+
+/* Responsive Adjustments (adjust as needed) */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column; /* Stack image and text vertically */
+  }
+
+  .image-block, .text-block { 
+    flex: auto; /* Equal width for image and text */
+    margin-right: 0; 
+    margin-bottom: 20px;
+  }
+}
+
+.accountDetails ul li { 
+  list-style-type: none; 
+}
+>>>>>>> Stashed changes
