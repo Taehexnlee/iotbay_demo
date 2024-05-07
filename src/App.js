@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import './config/axiosConfig';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -8,12 +7,11 @@ import { BrowserRouter as Router , Routes, Route } from 'react-router-dom';
 import AddUser from './users/AddUser';
 import EditUser from './users/EditUser';
 import ViewUser from './users/ViewUser';
-import AboutUs from './pages/AboutUs';
 import Login from './pages/Login';
 import HardwareHome from './pages/HardwareHome';
 import SoftwareHome from './pages/SoftwareHome';
 import Welcome from './pages/Welcome';
-import Payment from './pages/Payment';
+import Payment from './pages/PaymentPage';
 import Success from './pages/success';
 import StockManager from './pages/stockManager';
 import AdminPage from './pages/adminPage';

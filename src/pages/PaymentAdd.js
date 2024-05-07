@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-// Import a validation function specific to payment details
 import paymentValidation from '../pages/PaymentValidation';
 
 export default function Payment() {
@@ -25,7 +24,6 @@ export default function Payment() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // Perform payment validation
         const validationErrors = paymentValidation(paymentDetails);
         if (validationErrors) {
             setErrors(validationErrors);
@@ -33,12 +31,10 @@ export default function Payment() {
         }
         
         try {
-            // Here you would send the payment details to your server
             const response = await axios.post('http://localhost:8080/payment', paymentDetails);
-            // Assuming successful payment if no error is thrown
-            navigate('/payment-success'); // Navigate to a success page
+            navigate('/payment-success');
         } catch (error) {
-            // Handle payment errors
+            console.error('Failed to submit payment:', error);
             setErrors({ ...errors, payment: "Payment failed. Please try again later." });
         }
     };
@@ -68,7 +64,7 @@ export default function Payment() {
                     
                     {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
                     <button type='submit' className='btn btn-success w-100'>Confirm</button>
-                    <Link className='btn btn-outline-dark' to={'/success'}>Apple Pay</Link>
+                    <Link className='btn btn-outline-dark' to={'/success'}>Visa</Link>
                     <Link className='btn btn-outline-dark' to={'/success'}>MasterCard</Link>
                     <Link className='btn btn-outline-dark' to={'/success'}>Bpay</Link>
                 </form>
