@@ -18,7 +18,7 @@ export default function Payment() {
         cvvError: ""
     });
 
-    // 更新这部分，使用一个对象来跟踪每种支付方式的选中状态
+
     const [selectedMethods, setSelectedMethods] = useState({
         Visa: false,
         MasterCard: false,
