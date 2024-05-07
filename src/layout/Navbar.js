@@ -26,7 +26,7 @@ const Navbar = () => {
                 <Link to="/hardwareHome">Hardware Products</Link>
                 <Link to="/softwareHome">Software Products</Link>
                 <Link to="/aboutUs">About us</Link>
-                <Link to="/PaymentPage">Payment</a>
+                <Link to="/PaymentPage">Payment</Link>
             </section>
             <ul className="auth-buttons">
                 {!isAuthenticated() ? (
