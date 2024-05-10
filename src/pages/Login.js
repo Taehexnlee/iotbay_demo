@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
 import { Link, useNavigate } from "react-router-dom";
 import validation from "../users/LoginValidation";
 
@@ -12,47 +13,60 @@ export default function Login() {
   });
   // Initialize errors state to also handle authentication errors
   const [errors, setErrors] = useState({ auth: "" });
+  const [filteredUsers, setFilteredUsers] = useState([]); // State to store filtered users
+  const [userEmail, setUserEmail] = useState("");
 
+  // useEffect to fetch all users from the backend
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/users")
+      .then((response) => {
+        console.log("Fetched users from backend:", response.data);
+        setFilteredUsers(response.data); // Set filteredUsers with fetched users initially
+      })
+      .catch((error) => {
+        console.error("Error fetching users:", error);
+      });
+  }, []);
+
+  // Function to handle input change in the email field
   const handleInput = (event) => {
     const { name, value } = event.target;
     setUser({ ...user, [name]: value });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // Clear previous authentication errors
-    setErrors({ ...errors, auth: "" });
-
     try {
-      const response = await axios.post(
-        "http://localhost:8080/authenticate",
-        user
-      );
-      // Assuming successful authentication if no error is thrown
-      localStorage.setItem(
-        "user",
-        JSON.stringify({email: user.email })
-      );
-      console.log("User ID stored in local storage:", user.id);
-      navigate("/welcome"); // Navigate to the Welcome page
-    } catch (error) {
-      // Handle authentication errors
-      if (
-        error.response &&
-        (error.response.status === 401 || error.response.status === 403)
-      ) {
-        // Handle incorrect credentials
-        setErrors({
-          ...errors,
-          auth: "Incorrect email or password. Please try again.",
-        });
+      // Filter out users based on the entered email
+      const filtered = filteredUsers.filter((user) => user.email === userEmail);
+      console.log("Filtered users:", filtered);
+
+      // Assuming successful authentication if filteredUsers is not empty
+      if (filtered.length > 0) {
+        console.log("Authentication successful");
+
+        // Store login time if needed
+        const loginTime = new Date().toString();
+        console.log("Login time:", loginTime);
+        try {
+            const response = await axios.post(`http://localhost:8080/user/${filtered[0].id}/login`, loginTime);
+            console.log(response.data); // Log success message
+          } catch (error) {
+            console.error('Error storing logout time front end:', error);
+          }
+        localStorage.setItem("user", JSON.stringify(filtered[0])); // Store user data in local storage
+        
+        // Redirect to welcome page or perform other actions
+        navigate("/welcome"); // Navigate to the Welcome page
       } else {
-        // Handle other errors such as network issues
-        setErrors({
-          ...errors,
-          auth: "An error occurred. Please try again later.",
-        });
+        // Handle authentication failure if no user with the entered email is found
+        console.error("Authentication failed: User not found");
       }
+    } catch (error) {
+      // Handle authentication errors or other errors
+      console.error("Error during authentication:", error);
     }
   };
 
@@ -68,7 +82,7 @@ export default function Login() {
               type="email"
               placeholder="Enter Email"
               name="email"
-              onChange={handleInput}
+              onChange={(event) => setUserEmail(event.target.value)}
               className="form-control rounded"
             />
             {errors.email && (

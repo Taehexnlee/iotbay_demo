@@ -54,6 +54,9 @@ const EditUser = () => {
       !user.streetNumber ||
       !user.postCode ||
       !user.gender ||
+      !user.card ||
+      !user.expiration ||
+      !user.cvv ||
       !user.terms
     ) {
       setError(true); // Set error state to true
@@ -93,28 +96,13 @@ const EditUser = () => {
     <div className="container">
       <div className="row">
         <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-          <h2 className="text-center m-4">Edit User Profile</h2>
+          <h2 className="text-center m-4">Edit User Profile For {userEmail}</h2>
           {error && (
             <div className="alert alert-danger" role="alert">
               All fields are required.
             </div>
           )}
           <form onSubmit={onSubmit}>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                className={`form-control ${
-                  error && !user.email ? "is-invalid" : ""
-                }`}
-                placeholder="Enter your email"
-                name="email"
-                value={user.email}
-                onChange={(e) => onInputChange(e)}
-              />
-            </div>
             {/* Add input fields for other user details */}
             {/* First Name input */}
             <div className="mb-3">
@@ -249,6 +237,53 @@ const EditUser = () => {
                 <option value="non-binary">Non-Binary</option>
               </select>
             </div>
+            <div className="mb-3">
+              <label htmlFor="card" className="form-label">
+                Credit Card Number
+              </label>
+              <input
+                type="text"
+                className={`form-control ${
+                  error && !user.card ? "is-invalid" : ""
+                }`}
+                placeholder="Enter your credit card number"
+                name="card"
+                value={user.card}
+                onChange={onInputChange}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="expiration" className="form-label">
+                Expiration
+              </label>
+              <input
+                type="date"
+                className={`form-control ${
+                  error && !user.expiration ? "is-invalid" : ""
+                }`}
+                name="expiration"
+                value={user.expiration}
+                onChange={onInputChange}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="cvv" className="form-label">
+                CVV
+              </label>
+              <input
+                type="text"
+                className={`form-control ${
+                  error && !user.cvv ? "is-invalid" : ""
+                }`}
+                placeholder="Enter your CVV"
+                name="cvv"
+                value={user.cvv}
+                onChange={onInputChange}
+              />
+            </div>
+
             {/* Terms checkbox */}
             <div className="mb-3">
               <input

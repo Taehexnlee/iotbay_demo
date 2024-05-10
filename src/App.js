@@ -19,6 +19,7 @@ import AdminPage from './pages/adminPage';
 import PaymentAdd from './pages/PaymentAdd';
 import View from './pages/View';
 import Edit from './pages/Edit';
+import Logs from './pages/logs';
 
 function App() {
   return (
@@ -43,6 +44,8 @@ function App() {
         <Route exact path="/welcome" element={<Welcome />} />
         <Route exact path="/view" element={<View />} />
         <Route exact path="/edit" element={<Edit />} />
+        <Route exact path="/logs" element={<Logs />} />
+
 
         <Route exact path ="/adduser" element={<AddUser/>}/>
         <Route exact path ="/edituser/:id" element={<EditUser/>}/>
