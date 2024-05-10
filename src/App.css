@@ -270,37 +270,43 @@ nav {
   margin-left: 1rem;
 }
 
-/*SEARCH BAR*/
+
+
+/* SEARCH BAR */
 .search-bar {
-  width: 800px; /* Adjust the width as desired */
-  margin: 20px auto; /* Centers the search bar */
+  width: 800px;
+  margin: 20px auto; /* Center the entire search bar container */
+  text-align: center; /* Center content within the container */
 }
 
 .search-bar form {
-  display: flex; /* Enables positioning elements */
-  
+  /* No display property needed here */
 }
 
 .search-bar input[type="text"] {
-  width: calc(100% + 600px); /* Calculate width dynamically */ 
+  width: 100%; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 10px; 
+  margin-bottom: 10px; /* Add some space above the button */
 }
 
 .search-bar button {
-  background-color: rgb(38, 204, 198); /* Example color - change as needed */
+  background-color: rgb(38, 204, 198);
   color: white;
-  padding: 5px 10px; /* Smaller padding for a smaller button */
+  padding: 8px 15px; /* Smaller padding for smaller button */
   border: none;
-  border-radius: 10px; /* Rounded right corners */
-  margin-left: 10px; /* Move 10px to the right */
+  border-radius: 10px; 
   cursor: pointer;
+  display: block;     /* Make the button a block element */
+  margin: 0 auto;     /* Center the button horizontally */
 }
 
 .search-bar button:hover {
-  background-color: rgb(31, 167, 163); /* Slightly darker shade on hover */
+  background-color: rgb(31, 167, 163);
 }
+
+
 
 .stock-table table {
   width: 100%; 
@@ -378,24 +384,7 @@ background: rgba(0, 0, 0, 0.5);
   background-color: rgb(31, 167, 163); /* Slightly darker on hover */
 }
 
-/* Product Grid CSS */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Adjust for number of columns */
-  margin-top: 3rem;
-  gap: 30px;
-}
 
-.product {
-   text-align: center;
-   /* border: 1px solid #ddd; */
-   padding: 20px; /*TRBL*/
-}
-
-.product img {
-   max-width: 100%; 
-   height: auto; 
-}
 
 /*Add/Delete buttons*/
 .add-button, 
@@ -488,21 +477,24 @@ background: rgba(0, 0, 0, 0.5);
   }
 }
 
-/* Style for the container of the product images */
+/* Product Grid Layout */
 .product-grid {
-  display: flex; /* Use Flexbox for easy layout */
-  flex-wrap: wrap; /* Allow items to wrap to multiple lines */
-  justify-content: space-around; /* Distribute space around the images */
+  display: grid; /* Use CSS Grid for layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px; 
+  justify-content: space-around; /* Distribute space around items */
 }
 
-/* Style for individual product containers */
+/* Individual Product Styling */
 .product {
-  flex: 0 0 10%; /* Allow images to shrink, base width around 10% of the container */
-  margin: 10px; /* Space between products */
+  text-align: center;
+  padding: 20px;
+  border: 1px solid black;
 }
 
-/* Style for images */
+/* Product Image Styling */
 .product-image {
-  max-width: 100%; /* Make image scale to fit its container */
-  height: auto;  /* Maintain aspect ratio */
+  max-width: 100%;
+  height: auto;
+  
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 // import images here
@@ -10,60 +10,55 @@ import CPU from '../pages/Images/CPU.png';
 import MOTHERBOARD from '../pages/Images/MBD.png';
 
 export default function HardwareHome() {
+    const [searchTerm, setSearchTerm] = useState('');
+    const [showFiltered, setShowFiltered] = useState(false); 
+  
+    const allProducts = [
+      { name: "Graphics Card", image: GPU, price: "$499.99" },
+      { name: "SSD", image: SSD, price: "$92" },
+      { name: "RAM", image: RAM, price: "$69" },
+      { name: "Hard-Drive", image: HDD, price: "$50" },
+      { name: "CPU", image: CPU, price: "$289.99" },
+      { name: "Motherboard", image: MOTHERBOARD, price: "$99.99" },
+    ];
+  
+    const handleSearch = () => {
+      setShowFiltered(true);
+    };
+  
+    const filteredProducts = showFiltered
+      ? allProducts.filter(product =>
+          product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      : allProducts;  
+
   return (
     <main>
       <body className='mainHomeCSS'>
           <p class="hometext">Hardware Home</p>
           <div class="search-bar">
-            <form action="#">
-            <input type="text" placeholder="Search..." name="search"/>
-            <button type="submit">Search</button>
-            </form>
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          name="search"
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)} 
+        />
+        <button type="button" onClick={handleSearch}>Search</button> {/* Changed to type="button" */}
+      </div>
+
+      <div class="product-grid">
+        {filteredProducts.map(product => (
+          <div className="product" key={product.name}>
+            <img src={product.image} alt="IoTBay" className="product-image"></img>
+            <div className="product-info">
+              <h3>{product.name}</h3>
+              <p>{product.price}</p>
+            </div> 
           </div>
-          <div class="product-grid">
-        <div class="product">
-            <img src={GPU} alt="IoTBay" class="product-image"></img>
-            <div class="product-info">
-                <h3>Graphics Card</h3>
-                <p>$499.99</p>
-            </div> 
-        </div>
-        <div class="product">
-            <img src={SSD} alt="IoTBay" class="product-image"></img>
-            <div class="product-info">
-                <h3>SSD</h3>
-                <p>$89.99</p>
-            </div> 
-        </div>
-        <div class="product">
-            <img src={RAM} alt="IoTBay" class="product-image"></img>
-            <div class="product-info">
-                <h3>RAM</h3>
-                <p>$69.99</p>
-            </div> 
-        </div>
-        <div class="product">
-            <img src={HDD} alt="IoTBay" class="product-image"></img>
-            <div class="product-info">
-                <h3>Hard-Drive</h3>
-                <p>$49.99</p>
-        </div>
-        </div>
-        <div class="product">
-            <img src={CPU} alt="IoTBay" class="product-image"></img>
-            <div class="product-info">
-                <h3>CPU</h3>
-                <p>$289.99</p>
-        </div>
-        </div>
-        <div class="product">
-            <img src={MOTHERBOARD} alt="IoTBay" class="product-image"></img>
-            <div class="product-info">
-                <h3>Motherboard</h3>
-                <p>$99.99</p>
-        </div>
-        </div>
-        </div>
+        ))}
+      </div>
+      
         </body>
         <footer class="site-footer">
         <div class="footer-content">
