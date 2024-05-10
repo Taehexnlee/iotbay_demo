@@ -26,7 +26,7 @@ export default function Navbar() {
       <a href="/">Home</a>
       <a href="/hardwareHome">Hardware Products</a> 
       <a href="/softwareHome">Software Products</a>
-      <a href="/AboutUs">AboutUs</a>
+      <a href="/AboutUs">About Us</a>
       <a href="/PaymentPage">Payment</a>
     </section>
     

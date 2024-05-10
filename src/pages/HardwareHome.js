@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 // import images here
 import GPU from '../pages/Images/GPU.png';
@@ -11,7 +11,7 @@ import MOTHERBOARD from '../pages/Images/MBD.png';
 
 export default function HardwareHome() {
     const [searchTerm, setSearchTerm] = useState('');
-    const [showFiltered, setShowFiltered] = useState(false); 
+ 
   
     const allProducts = [
       { name: "Graphics Card", image: GPU, price: "$499.99" },
@@ -22,34 +22,43 @@ export default function HardwareHome() {
       { name: "Motherboard", image: MOTHERBOARD, price: "$99.99" },
     ];
   
-    const handleSearch = () => {
-      setShowFiltered(true);
-    };
-  
-    const filteredProducts = showFiltered
-      ? allProducts.filter(product =>
-          product.name.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-      : allProducts;  
+    const [filteredProducts, setFilteredProducts] = useState(allProducts); // Initialize with allProducts
+
+  useEffect(() => {
+    const newFilteredProducts = allProducts.filter(product =>
+      product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    setFilteredProducts(newFilteredProducts); // Filter on every input change
+  }, [searchTerm]); // Dependency on searchTerm
+
+
+  const handleSearch = () => {
+    setSearchTerm(''); 
+    setFilteredProducts(allProducts); 
+  };
 
   return (
-    <main>
-      <body className='mainHomeCSS'>
-          <p class="hometext">Hardware Home</p>
-          <div class="search-bar">
-        <input 
-          type="text" 
-          placeholder="Search..." 
-          name="search"
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)} 
-        />
-        <button type="button" onClick={handleSearch}>Search</button> {/* Changed to type="button" */}
-      </div>
+        <main>
+          <body className='mainHomeCSS'>
+            <p className="hometext">Hardware Home</p>
+            <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search..."
+            name="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
 
-      <div class="product-grid">
-        {filteredProducts.map(product => (
-          <div className="product" key={product.name}>
+        <div class="product-grid">
+          {/* Map over ALL products, but conditionally render */}
+          {filteredProducts.map(product => (
+            <div
+              className="product"
+              key={product.name}
+              style={{ display: filteredProducts.includes(product) ? 'block' : 'none' }}
+            >
             <img src={product.image} alt="IoTBay" className="product-image"></img>
             <div className="product-info">
               <h3>{product.name}</h3>
@@ -58,8 +67,9 @@ export default function HardwareHome() {
           </div>
         ))}
       </div>
-      
         </body>
+
+
         <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 ISD Vantablack</p> 
