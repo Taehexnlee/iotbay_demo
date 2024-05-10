@@ -271,7 +271,6 @@ nav {
 }
 
 
-
 /* SEARCH BAR */
 .search-bar {
   width: 800px;
@@ -307,8 +306,6 @@ nav {
   background-color: rgb(31, 167, 163);
 }
 
-
-
 .stock-table table {
   width: 100%; 
   border-collapse: collapse;
@@ -330,13 +327,11 @@ nav {
   padding-left: 5px;
 }
 
-
 /*FOOTER*/
 footer {
 text-align: center;
 margin-top: auto;
 background: rgba(0, 0, 0, 0.5);
-  
 } 
 
 .site-footer {
@@ -385,8 +380,6 @@ background: rgba(0, 0, 0, 0.5);
   background-color: rgb(31, 167, 163); /* Slightly darker on hover */
 }
 
-
-
 /*Add/Delete buttons*/
 .add-button, 
 .delete-button{
@@ -409,12 +402,10 @@ background: rgba(0, 0, 0, 0.5);
   font-weight: bold;
 }
 
-
 .selected {
   background-color: #6c757d;
   color: white;
 }
-
 
 /* About Us Section */
 #about-us {
@@ -480,22 +471,21 @@ background: rgba(0, 0, 0, 0.5);
 
 /* Product Grid Layout */
 .product-grid {
-  display: grid; /* Use CSS Grid for layout */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: grid;
+  grid-template-columns: repeat(minmax(250px, 1fr)); /* Ensure multiple columns */
   gap: 30px; 
-  justify-content: space-around; /* Distribute space around items */
+  justify-content: space-around;
 }
 
 /* Individual Product Styling */
 .product {
   text-align: center;
   padding: 20px;
-  border: 1px solid black;
 }
 
 /* Product Image Styling */
 .product-image {
   max-width: 100%;
   height: auto;
-  
+  border: 1px solid black;
 }
