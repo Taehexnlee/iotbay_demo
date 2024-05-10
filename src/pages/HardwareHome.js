@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom'
 
 // import images here
 import GPU from '../pages/Images/GPU.png';
-import SSD from '../pages/Images/ssd.jpeg';
-import RAM from '../pages/Images/RAM.jpg';
-import HDD from '../pages/Images/hdd.jpeg';
-import CPU from '../pages/Images/cpu-upgrade.jpg';
-import MOTHERBOARD from '../pages/Images/motherboard.jpeg';
+import SSD from '../pages/Images/SSD.png';
+import RAM from '../pages/Images/RAM.png';
+import HDD from '../pages/Images/HDD.png';
+import CPU from '../pages/Images/CPU.png';
+import MOTHERBOARD from '../pages/Images/MBD.png';
 
 export default function HardwareHome() {
   return (

@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // import images here
-import MSOffice from '../pages/Images/microsoft office.jpg';
-import Oracle from '../pages/Images/oracle services.png';
-import Windows11 from '../pages/Images/windows 11.jpg';
-import Windows11Pro from '../pages/Images/windows 11 pro.jpg';
-import Procurify from '../pages/Images/procurify.jpg';
-import Adobe from '../pages/Images/Adobe.png';
+import MSOffice from '../pages/Images/MSO.png';
+import Oracle from '../pages/Images/ORACLE.png';
+import Windows11 from '../pages/Images/WINDOWS11.png';
+import Windows11Pro from '../pages/Images/WINDOWS11PRO.png';
+import Procurify from '../pages/Images/PROCURIFY.png';
+import Adobe from '../pages/Images/ADOBE.png';
 
 export default function SoftwareHome() {
   return (
