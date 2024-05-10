@@ -31,8 +31,6 @@ export default function AboutUs() {
     <img src={ourProducts} alt="Our Products" class="larger-image-block"></img>
     </div>
       </div>
-
-
     </body>
     </main>
   )
