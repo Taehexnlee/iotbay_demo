@@ -31,24 +31,17 @@ export default function Navbar() {
     </section>
     
   { 
-    <ul class="auth-buttons">
-     {!isAuthenticated() && (
-                                <>
-                                    <li>
-                                    <a href="/login" class="login-button">Log in</a>
-                                    </li>
-                                    <li>
-                                      <a href="/adduser" class="register-button">Register</a>
-                                    </li>
-                                </>
-                            )}
+    <div className="auth-buttons"> {/* Use a div for container styling */}
+    {!isAuthenticated() && (
+      <> 
+        <a href="/login" className="login-button">Log in</a>
+        <a href="/adduser" className="register-button">Register</a>
+      </>
+    )}
     {isAuthenticated() && (
-                                <li>
-                                  {/* <button onClick={handleLogout} class="login-button">Logout</button>  */}
-                                  <a onClick={handleLogout} class="login-button">Log in</a>
-                                </li>
-     )}
-    </ul>
+      <a onClick={handleLogout} className="login-button">Log in</a>
+    )}
+  </div>
 }
   </nav> 
 )}

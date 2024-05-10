@@ -314,6 +314,15 @@ nav {
   text-align: left;
 }
 
+.stock-table th button {
+  background: white;   /* Remove background color */
+  border: none;       /* Remove border */
+  padding: 0;         /* Remove padding */
+  font: inherit;      /* Inherit font from parent (table header) */
+  cursor: pointer;    /* Show pointer cursor on hover */
+  text-align: left;   /* Align text to the left */
+}
+
 .welcAdm{
   color: #000000;
   font-size: 20px;
@@ -379,13 +388,13 @@ background: rgba(0, 0, 0, 0.5);
 /*Add/Delete buttons*/
 .add-button, 
 .delete-button{
-  background-color: red;
+  background-color: rgb(99, 99, 99);
   font-size: 17px;
 }
 
 .add-button:hover, 
 .delete-button:hover{
-  background-color: rgb(225, 0, 0);
+  background-color: rgb(73, 73, 73);
 }
 
 /*Payment method button*/
