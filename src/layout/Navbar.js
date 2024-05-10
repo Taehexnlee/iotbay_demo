@@ -30,8 +30,9 @@ export default function Navbar() {
       <a href="/PaymentPage">Payment</a>
     </section>
     
-    { <ul class="auth-buttons">
-                            {!isAuthenticated() && (
+  { 
+    <ul class="auth-buttons">
+     {!isAuthenticated() && (
                                 <>
                                     <li>
                                     <a href="/login" class="login-button">Log in</a>
@@ -41,13 +42,13 @@ export default function Navbar() {
                                     </li>
                                 </>
                             )}
-                            {isAuthenticated() && (
+    {isAuthenticated() && (
                                 <li>
                                   {/* <button onClick={handleLogout} class="login-button">Logout</button>  */}
                                   <a onClick={handleLogout} class="login-button">Log in</a>
                                 </li>
-                            )}
-                        </ul>
+     )}
+    </ul>
 }
   </nav> 
 )}
