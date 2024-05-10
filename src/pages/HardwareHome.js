@@ -2,7 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 // import images here
-import IoTBayLogo from '../pages/Images/IoTBay.png';
+import GPU from '../pages/Images/GPU.png';
+import SSD from '../pages/Images/ssd.jpeg';
+import RAM from '../pages/Images/RAM.jpg';
+import HDD from '../pages/Images/hdd.jpeg';
+import CPU from '../pages/Images/cpu-upgrade.jpg';
+import MOTHERBOARD from '../pages/Images/motherboard.jpeg';
 
 export default function HardwareHome() {
   return (
@@ -17,45 +22,45 @@ export default function HardwareHome() {
           </div>
           <div class="product-grid">
         <div class="product">
-            <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img>
+            <img src={GPU} alt="IoTBay" class="product-image"></img>
             <div class="product-info">
-                <h3>Product Name 1</h3>
-                <p>$19.99</p>
+                <h3>Graphics Card</h3>
+                <p>$499.99</p>
             </div> 
         </div>
         <div class="product">
-            <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img>
+            <img src={SSD} alt="IoTBay" class="product-image"></img>
             <div class="product-info">
-                <h3>Product Name 1</h3>
-                <p>$19.99</p>
+                <h3>SSD</h3>
+                <p>$89.99</p>
             </div> 
         </div>
         <div class="product">
-            <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img>
+            <img src={RAM} alt="IoTBay" class="product-image"></img>
             <div class="product-info">
-                <h3>Product Name 1</h3>
-                <p>$19.99</p>
+                <h3>RAM</h3>
+                <p>$69.99</p>
             </div> 
         </div>
         <div class="product">
-            <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img>
+            <img src={HDD} alt="IoTBay" class="product-image"></img>
             <div class="product-info">
-                <h3>Product Name 1</h3>
-                <p>$19.99</p>
+                <h3>Hard-Drive</h3>
+                <p>$49.99</p>
         </div>
         </div>
         <div class="product">
-            <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img>
+            <img src={CPU} alt="IoTBay" class="product-image"></img>
             <div class="product-info">
-                <h3>Product Name 1</h3>
-                <p>$19.99</p>
+                <h3>CPU</h3>
+                <p>$289.99</p>
         </div>
         </div>
         <div class="product">
-            <img src={IoTBayLogo} alt="IoTBay" class="logo-image"></img>
+            <img src={MOTHERBOARD} alt="IoTBay" class="product-image"></img>
             <div class="product-info">
-                <h3>Product Name 1</h3>
-                <p>$19.99</p>
+                <h3>Motherboard</h3>
+                <p>$99.99</p>
         </div>
         </div>
         </div>

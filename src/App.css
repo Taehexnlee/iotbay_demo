@@ -488,4 +488,21 @@ background: rgba(0, 0, 0, 0.5);
   }
 }
 
+/* Style for the container of the product images */
+.product-grid {
+  display: flex; /* Use Flexbox for easy layout */
+  flex-wrap: wrap; /* Allow items to wrap to multiple lines */
+  justify-content: space-around; /* Distribute space around the images */
+}
 
+/* Style for individual product containers */
+.product {
+  flex: 0 0 10%; /* Allow images to shrink, base width around 10% of the container */
+  margin: 10px; /* Space between products */
+}
+
+/* Style for images */
+.product-image {
+  max-width: 100%; /* Make image scale to fit its container */
+  height: auto;  /* Maintain aspect ratio */
+}

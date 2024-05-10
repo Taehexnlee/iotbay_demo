@@ -32,6 +32,17 @@ export default function AboutUs() {
     </div>
       </div>
     </body>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ISD Vantablack</p> 
+            <ul class="footer-links">
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="/adminPage">Admin Login</a></li>
+            </ul>
+        </div>
+    </footer>
     </main>
   )
 }
