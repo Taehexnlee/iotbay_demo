@@ -470,8 +470,7 @@ background: rgba(0, 0, 0, 0.5);
 .btn-payment-dark.selected {
   font-weight: bold;
 }
-<<<<<<< Updated upstream
-=======
+
 
 .selected {
   background-color: #6c757d;
@@ -515,6 +514,10 @@ background: rgba(0, 0, 0, 0.5);
   flex: 2; /* Allow text to take more space  */
 }
 
+.accountDetails ul li { 
+  list-style-type: none; 
+}
+
 /* Responsive Adjustments (adjust as needed) */
 @media (max-width: 768px) {
   .about-content {
@@ -528,7 +531,4 @@ background: rgba(0, 0, 0, 0.5);
   }
 }
 
-.accountDetails ul li { 
-  list-style-type: none; 
-}
->>>>>>> Stashed changes
+

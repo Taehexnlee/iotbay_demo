@@ -5,19 +5,13 @@ import ourTeam from '../pages/Images/our Team.jpeg';
 
 export default function AboutUs() {
   return (
-    <div className='container'>
-      <div className='py-4'>
-        <header>
-         
-        </header>
+    <main>
+      <body>
 
         <main>
           <p class="hometext">About us</p>
         </main>
 
-<<<<<<< Updated upstream
-      </div>
-=======
       <div class="about-content">
         <div class="image-block">
           <img src={ourTeam} alt="Our Team"></img>
@@ -39,7 +33,7 @@ export default function AboutUs() {
       </div>
 
 
->>>>>>> Stashed changes
-    </div>
+    </body>
+    </main>
   )
 }
