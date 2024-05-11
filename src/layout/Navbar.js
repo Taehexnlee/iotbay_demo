@@ -35,6 +35,7 @@ const Navbar = () => {
                 <Link to="/hardwareHome">Hardware Products</Link>
                 <Link to="/softwareHome">Software Products</Link>
                 <Link to="/aboutUs">About us</Link>
+                <Link to="/Cart">Cart</Link>
                 
             </section>
             <ul className="auth-buttons">
