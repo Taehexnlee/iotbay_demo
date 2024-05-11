@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const OrderHistory = () => {
-  // State to store order history
   const [orderHistory, setOrderHistory] = useState([]);
 
-  // Effect to fetch order history when component mounts
   useEffect(() => {
     fetchOrderHistory();
   }, []);
 
-  // Function to fetch order history from the backend
   const fetchOrderHistory = async () => {
     try {
-      const response = await axios.get('/api/orders');
+      // Make a request to fetch order history based on the session identifier
+      const response = await axios.get("http://localhost:8080/order/history", {
+        params: {
+          sessionIdentifier: "your_session_identifier", // Replace with actual session identifier
+        },
+      });
       setOrderHistory(response.data);
     } catch (error) {
-      console.error('Error fetching order history:', error);
+      console.error("Failed to fetch order history:", error);
     }
   };
 
@@ -26,13 +28,13 @@ const OrderHistory = () => {
       const response = await axios.get(`/api/orders?search=${searchTerm}`);
       setOrderHistory(response.data);
     } catch (error) {
-      console.error('Error searching order history:', error);
+      console.error("Error searching order history:", error);
     }
   };
 
   return (
     <div>
-      <h2>Order History</h2>
+      <h1>Order History</h1>
       <div>
         <input
           type="text"
@@ -41,15 +43,22 @@ const OrderHistory = () => {
         />
       </div>
       {orderHistory.length === 0 ? (
-        <p>No orders found</p>
+        <p>No orders found.</p>
       ) : (
         <div>
           {orderHistory.map((order) => (
-            <div key={order.id}>
-              <p>Order Number: {order.orderNumber}</p>
-              <p>Date: {order.date}</p>
-              <p>Total Amount: ${order.totalAmount}</p>
-              {/* Add more details as needed */}
+            <div key={order.orderId}>
+              <h2>Order #{order.orderId}</h2>
+              <p>Session Identifier: {order.sessionIdentifier}</p>
+              <ul>
+                {order.items.map((item) => (
+                  <li key={item.itemId}>
+                    {item.itemName} - Quantity: {item.quantity} - Price: $
+                    {item.price}
+                  </li>
+                ))}
+              </ul>
+              <hr />
             </div>
           ))}
         </div>

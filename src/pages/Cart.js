@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom'; // Import Link component
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -23,26 +23,33 @@ const Cart = () => {
   };
 
   const updateQuantity = async (itemId, newQuantity) => {
-    console.log("Item :", itemId);
-    console.log("Q :", newQuantity);
     try {
-        // Send the new quantity as a JSON object in the request body
-        await axios.put(`http://localhost:8080/cart/cart/update/${itemId}`, { quantity: newQuantity });
-        fetchCartItems(); // Refresh cart items after updating quantity
+      await axios.put(`http://localhost:8080/cart/cart/update/${itemId}`, {
+        quantity: newQuantity,
+      });
+      fetchCartItems();
     } catch (error) {
-        console.error("Failed to update quantity:", error);
+      console.error("Failed to update quantity:", error);
     }
-};
-
-
+  };
 
   const removeItem = async (itemId) => {
-    console.log("Item :", itemId);
     try {
       await axios.delete(`http://localhost:8080/cart/cart/remove/${itemId}`);
-      fetchCartItems(); // Refresh cart items after removing item
+      fetchCartItems();
     } catch (error) {
       console.error("Failed to remove item:", error);
+    }
+  };
+
+  const saveOrder = async () => {
+    try {
+      console.log("cart items:", cartItems);
+      await axios.post("http://localhost:8080/order/save", cartItems);
+      alert("Order saved successfully!");
+    } catch (error) {
+      console.error("Failed to save order:", error);
+      alert("Failed to save order. Please try again later.");
     }
   };
 
@@ -58,13 +65,27 @@ const Cart = () => {
               <p>{item.itemName}</p>
               <p>Quantity: {item.quantity}</p>
               <p>Price: ${item.price}</p>
-              <button onClick={() => updateQuantity(item.itemId, item.quantity + 1)}>+</button>
-              <button onClick={() => updateQuantity(item.itemId, item.quantity - 1)}>-</button>
+              <button
+                onClick={() => updateQuantity(item.itemId, item.quantity + 1)}
+              >
+                +
+              </button>
+              <button
+                onClick={() => updateQuantity(item.itemId, item.quantity - 1)}
+              >
+                -
+              </button>
               <button onClick={() => removeItem(item.itemId)}>Remove</button>
             </div>
           ))}
-          <p>Total: ${cartItems.reduce((total, item) => total + (item.price * item.quantity), 0)}</p>
-          <Link to="/checkout">Proceed to Checkout</Link> {/* Use Link component for navigation */}
+          <p>
+            Total: $
+            {cartItems
+              .reduce((total, item) => total + item.price * item.quantity, 0)
+              .toFixed(2)}
+          </p>
+          <button onClick={saveOrder}>Save Order</button>
+          <Link to="/PaymentAdd">Proceed to Checkout</Link>
         </div>
       )}
     </div>

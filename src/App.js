@@ -20,7 +20,8 @@ import PaymentAdd from './pages/PaymentAdd';
 import View from './pages/View';
 import Edit from './pages/Edit';
 import Logs from './pages/logs';
-import Cart from './pages/Cart'
+import Cart from './pages/Cart';
+import OrderHistory from './pages/OrderHistory';
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
         <Route exact path="/edit" element={<Edit />} />
         <Route exact path="/logs" element={<Logs />} />
         <Route exact path="/Cart" element={<Cart />} />
+        <Route exact path="/OrderHistory" element={<OrderHistory />} />
+
 
 
         <Route exact path ="/adduser" element={<AddUser/>}/>
