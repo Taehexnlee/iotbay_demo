@@ -28,7 +28,9 @@ const Navbar = () => {
     return (
         <nav>
             <div className="logo">
-                <img src={IoTBayLogo} alt="IoTBay" className="logo-image" />
+                 <Link to="/">
+  <img src={IoTBayLogo} alt="IoTBay" className="logo-image" />
+      </Link>
             </div>
             <section className="page-links">
                 <Link to="/">Home</Link>
@@ -37,7 +39,7 @@ const Navbar = () => {
                 <Link to="/aboutUs">About us</Link>
                 <Link to="/Cart">Cart</Link>
                 <Link to="/OrderHistory">Order History</Link>
-                
+                <Link to="/PaymentPage">Payment</Link>
             </section>
             <ul className="auth-buttons">
                 {!isAuthenticated() ? (

@@ -21,22 +21,32 @@ export default function Home() {
     }
   return (
     
-    <div className='container'>
-        <div className='py-4'>
-        <header>
-        <h1 class="Welcome-Text">Welcome to the IoTBay Website</h1>
-    </header>
+   
 
     <main>
-      <p class="hometext">You can browse products, login, or register</p>
-    </main>
+      <body>
+      <p class="hometext">Welcome to the IoTBay Website!</p>
+    
+
 
 
     <footer>
       <p class="copyright">Vantablack Group 2024</p>
     </footer>
 
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ISD Vantablack</p> 
+            <ul class="footer-links">
+                <li><a href="/aboutus">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="/adminPage">Admin Login</a></li>
+            </ul>
         </div>
-    </div>
+    </footer>
+</body>
+ </main>       
   )
 }
