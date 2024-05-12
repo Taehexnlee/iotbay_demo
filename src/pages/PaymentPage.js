@@ -3,46 +3,44 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const PaymentOptions = () => {
-  const [paymentOptions, setPaymentOptions] = useState([]);
+  const [payments, setPayments] = useState([]);
+  const userId = JSON.parse(localStorage.getItem("user"))?.id;
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchPaymentOptions();
-  }, []);
+    if (!userId) {
+      navigate("/login");
+      return;
+    }
+    // Fetch payment details for the logged-in user from the backend
+    axios.get(`http://localhost:8080/api/payment/${userId}`)
+      .then((response) => {
+        console.log("Fetched payment details from backend:", response.data);
+        setPayments(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching payment details:", error);
+      });
+  }, [userId, navigate]);
 
   const handleAddPayment = () => {
     navigate('/paymentAdd');
-  };
-  const fetchPaymentOptions = async () => {
-    try {
-        const { data } = await axios.get('http://localhost:8080/api/payment-options');
-        setPaymentOptions(data);
-    } catch (error) {
-        console.error("Failed to fetch payment options:", error);
-    }
-  };
-
-  const handleDelete = async (optionId) => {
-    await axios.delete(`http://localhost:8080/api/payment-options/${optionId}`);
-    fetchPaymentOptions();
-  };
-
-  const renderPaymentOptions = () => {
-    return paymentOptions.map(option => (
-      <div key={option.id} style={{ padding: "10px", border: "1px solid #ccc", marginBottom: "10px" }}>
-        <h4>{option.type} ending in {option.lastFourDigits}</h4>
-        <p>Last used for checkout by {option.user}</p>
-        <button onClick={() => alert('Editing not implemented')}>Edit</button>
-        <button onClick={() => handleDelete(option.id)}>Delete</button>
-      </div>
-    ));
   };
 
   return (
     <div>
       <h2>Payments</h2>
       <h3>Payment options</h3>
-      {renderPaymentOptions()}
+      <h2>Payment Details</h2>
+      <ul className="paymentDetails">
+        {payments.map((payment) => (
+          <li key={payment.id}>
+            Credit Card: **** **** **** {payment.cardNumber.slice(-4)} <br />
+            Expiration: {payment.expiration} <br />
+            Card Type: {payment.cardtype} <br />
+          </li>
+        ))}
+      </ul>
       <button onClick={handleAddPayment} className="btn btn-primary">Add Payment</button>
     </div>
   );
