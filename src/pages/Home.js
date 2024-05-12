@@ -7,6 +7,7 @@ export default function Home() {
     
     useEffect(()=>{
        loadUsers();
+       //deleteUser();
     },[])
 
     const loadUsers =async() =>{
@@ -26,6 +27,13 @@ export default function Home() {
       <body>
       <p class="hometext">Welcome to the IoTBay Website!</p>
     
+
+
+
+    <footer>
+      <p class="copyright">Vantablack Group 2024</p>
+    </footer>
+
 
     <footer class="site-footer">
         <div class="footer-content">

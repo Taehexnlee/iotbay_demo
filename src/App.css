@@ -412,6 +412,7 @@ background: rgba(0, 0, 0, 0.5);
   color: white;
 }
 
+
 /* About Us Section */
 #about-us {
   background-color: #f5f5f5; 
@@ -452,6 +453,7 @@ background: rgba(0, 0, 0, 0.5);
   max-width: 150%; /* Increase size by 50% */
   height: auto;     /* Maintain aspect ratio */
 }
+
 
 .text-block {
   flex: 2; /* Allow text to take more space  */
@@ -509,4 +511,5 @@ background: rgba(0, 0, 0, 0.5);
   .product-grid {
     grid-template-columns: 1fr; 
   }
+
 }
