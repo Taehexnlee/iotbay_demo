@@ -31,7 +31,6 @@ const PaymentOptions = () => {
     <div>
       <h2>Payments</h2>
       <h3>Payment options</h3>
-      <h2>Payment Details</h2>
       <ul className="paymentDetails">
         {payments.map((payment) => (
           <li key={payment.id}>

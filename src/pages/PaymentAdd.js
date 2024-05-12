@@ -55,6 +55,10 @@ export default function Payment() {
         }
     };
 
+    const handleSuccess = () => {
+        navigate('/success');
+      };
+
     return (
         <div className='d-flex justify-content-center align-items-center bg-white'>
             <div className='bg-white p-3 row'>
@@ -95,7 +99,7 @@ export default function Payment() {
                         onClick={() => toggleSelected('Bpay')}>
                         Bpay
                     </button>
-                    <button type="submit" className='btn btn-success w-100'>Confirm</button>
+                    <button onClick={handleSuccess} className='btn btn-success w-100'>Confirm</button>
                 </form>
             </div>
         </div>
