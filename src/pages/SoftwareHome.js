@@ -7,7 +7,7 @@ import Oracle from '../pages/Images/ORACLE.png';
 import Windows11 from '../pages/Images/WINDOWS11.png';
 import Windows11Pro from '../pages/Images/WINDOWS11PRO.png';
 import Procurify from '../pages/Images/PROCURIFY.png';
-import Adobe from '../pages/Images/ADOBE.png';
+import Adobe from './Images/ADOBE.png';
 
 export default function SoftwareHome() {
   const [searchTerm, setSearchTerm] = useState('');
