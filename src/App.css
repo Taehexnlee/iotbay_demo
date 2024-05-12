@@ -307,21 +307,34 @@ nav {
   border-collapse: collapse;
 }
 
-.stock-table th,
 .stock-table td {
   border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
+  padding: 2px;
+  text-align: center;
 }
 
 .stock-table th button {
-  background: white;   /* Remove background color */
+  background-color: rgb(38, 204, 198);
+  color: #ffffff;   /* Remove background color */
   border: none;       /* Remove border */
   padding: 0;         /* Remove padding */
   font: inherit;      /* Inherit font from parent (table header) */
   cursor: pointer;    /* Show pointer cursor on hover */
-  text-align: left;   /* Align text to the left */
+  text-align: center;   /* Align text to the left */
+  font-weight: bold;
 }
+
+.stock-table th button:hover {
+  background-color: rgb(31, 167, 163);
+  color: #ffffff;   /* Remove background color */
+  border: none;       /* Remove border */
+  padding: 0;         /* Remove padding */
+  font: inherit;      /* Inherit font from parent (table header) */
+  cursor: pointer;    /* Show pointer cursor on hover */
+  text-align: center;   /* Align text to the left */
+  font-weight: bold;
+}
+
 
 .welcAdm{
   color: #000000;

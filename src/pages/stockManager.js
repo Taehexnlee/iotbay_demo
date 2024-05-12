@@ -93,10 +93,10 @@ const allProducts = [
         <table>
           <thead>
             <tr>
-                <td><button onClick={() => handleSort('name')}>Product Name</button></td>
-                <td><button onClick={() => handleSort('id')}>Product Code</button></td>
-                <td><button onClick={() => handleSort('price')}>Price</button></td>
-                <td><button onClick={() => handleSort('quantity')}>Quantity</button></td>
+                <th><button onClick={() => handleSort('name')}>Product Name (sort ↨)</button></th>
+                <th><button onClick={() => handleSort('id')}>Product Code (sort ↨)</button></th>
+                <th><button onClick={() => handleSort('price')}>Price (sort ↨)</button></th>
+                <th><button onClick={() => handleSort('quantity')}>Quantity (sort ↨)</button></th>
                 <th>Add to website</th>
                 <th>Delete from website</th>
               </tr>
