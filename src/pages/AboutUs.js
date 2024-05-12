@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import ourProducts from '../pages/Images/our products.png';
 import ourTeam from '../pages/Images/our Team.jpeg';
 
+
 export default function AboutUs() {
   return (
     <main>
@@ -33,6 +34,7 @@ export default function AboutUs() {
       </div>
     </body>
     <footer class="site-footer">
+
         <div class="footer-content">
             <p>&copy; 2024 ISD Vantablack</p> 
             <ul class="footer-links">
@@ -43,6 +45,7 @@ export default function AboutUs() {
             </ul>
         </div>
     </footer>
-    </main>
+
+   </main>
   )
 }

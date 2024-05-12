@@ -6,8 +6,7 @@ import paymentValidation from '../pages/PaymentValidation';
 
 export default function Payment() {
     let navigate = useNavigate();
-    const [isSelected, setIsSelected] = useState(false);
-    
+
     const [paymentDetails, setPaymentDetails] = useState({
         cardNumber: "",
         expirationDate: "",
@@ -17,6 +16,13 @@ export default function Payment() {
         cardNumberError: "",
         expirationDateError: "",
         cvvError: ""
+    });
+
+
+    const [selectedMethods, setSelectedMethods] = useState({
+        Visa: false,
+        MasterCard: false,
+        Bpay: false
     });
 
     const handleInput = (event) => {
@@ -31,7 +37,7 @@ export default function Payment() {
             setErrors(validationErrors);
             return;
         }
-        
+
         try {
             const response = await axios.post('http://localhost:8080/payment', paymentDetails);
             navigate('/payment-success');
@@ -41,8 +47,8 @@ export default function Payment() {
         }
     };
 
-    const toggleSelected = () => {
-        setIsSelected(!isSelected);
+    const toggleSelected = (method) => {
+        setSelectedMethods(prev => ({ ...prev, [method]: !prev[method] }));
     };
 
     return (
@@ -59,7 +65,8 @@ export default function Payment() {
                         <label htmlFor='expirationDate'><strong>Expiration</strong></label>
                         <input type='text' placeholder='Enter Expiration' name='expirationDate'
                                onChange={handleInput} className='form-control rounded'/>
-                        {errors.expirationDateError && <span className='text-danger'>{errors.expirationDateError}</span>}
+                        {errors.expirationDateError &&
+                            <span className='text-danger'>{errors.expirationDateError}</span>}
                     </div>
                     <div className='mb-3'>
                         <label htmlFor='cvv'><strong>CVV</strong></label>
@@ -67,12 +74,20 @@ export default function Payment() {
                                onChange={handleInput} className='form-control rounded'/>
                         {errors.cvvError && <span className='text-danger'>{errors.cvvError}</span>}
                     </div>
-                    
+
                     {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
                     <button type='submit' className='btn btn-success w-100'>Confirm</button>
-                    <button type="button" className={`btn btn-outline-dark ${isSelected ? 'selected' : ''}`} onClick={toggleSelected}>Visa</button>
-                    <button type="button" className={`btn btn-outline-dark ${isSelected ? 'selected' : ''}`} onClick={toggleSelected}>MasterCard</button>
-                    <button type="button" className={`btn btn-outline-dark ${isSelected ? 'selected' : ''}`} onClick={toggleSelected}>Bpay</button>
+                    <button type="button" className={`btn btn-outline-dark ${selectedMethods.Visa ? 'selected' : ''}`}
+                            onClick={() => toggleSelected('Visa')}>Visa
+                    </button>
+                    <button type="button"
+                            className={`btn btn-outline-dark ${selectedMethods.MasterCard ? 'selected' : ''}`}
+                            onClick={() => toggleSelected('MasterCard')}>MasterCard
+                    </button>
+                    <button type="button" className={`btn btn-outline-dark ${selectedMethods.Bpay ? 'selected' : ''}`}
+                            onClick={() => toggleSelected('Bpay')}>Bpay
+                    </button>
+
                 </form>
             </div>
         </div>
