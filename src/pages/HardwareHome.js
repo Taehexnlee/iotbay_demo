@@ -1,87 +1,89 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from 'axios'
 
 // import images here
-import GPU from '../pages/Images/GPU.png';
-import SSD from '../pages/Images/SSD.png';
-import RAM from '../pages/Images/RAM.png';
-import HDD from '../pages/Images/HDD.png';
-import CPU from '../pages/Images/CPU.png';
-import MOTHERBOARD from '../pages/Images/MBD.png';
+import IoTBayLogo from "../pages/Images/IoTBay.png";
 
 export default function HardwareHome() {
-    const [searchTerm, setSearchTerm] = useState('');
- 
-  
-    const allProducts = [
-      { name: "Graphics Card", image: GPU, price: "$499.99" },
-      { name: "SSD", image: SSD, price: "$92" },
-      { name: "RAM", image: RAM, price: "$69" },
-      { name: "Hard-Drive", image: HDD, price: "$50" },
-      { name: "CPU", image: CPU, price: "$289.99" },
-      { name: "Motherboard", image: MOTHERBOARD, price: "$99.99" },
-    ];
-  
-    const [filteredProducts, setFilteredProducts] = useState(allProducts); // Initialize with allProducts
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    const newFilteredProducts = allProducts.filter(product =>
-      product.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setFilteredProducts(newFilteredProducts); // Filter on every input change
-  }, [searchTerm]); // Dependency on searchTerm
+    fetchProducts();
+  }, []);
 
-
-  const handleSearch = () => {
-    setSearchTerm(''); 
-    setFilteredProducts(allProducts); 
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/products");
+      if (response.status === 200) {
+        setProducts(response.data);
+      } else {
+        throw new Error("Failed to fetch products");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
+  const addToCart = async (productId, quantity = 1) => { // Set default quantity as 1
+    try {
+      await axios.post(`http://localhost:8080/products/${productId}/add-to-cart`, { quantity });
+      alert("Product added to cart successfully!");
+    } catch (error) {
+      console.error("Failed to add product to cart:", error);
+      alert("Failed to add product to cart. Please try again later.");
+    }
+};
+
+
   return (
-        <main>
-          <body className='mainHomeCSS'>
-            <p className="hometext">Hardware Home</p>
-            <div class="search-bar">
-          <input
-            type="text"
-            placeholder="Search..."
-            name="search"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+    <main>
+      <body className="mainHomeCSS">
+        <p className="hometext">Hardware Home</p>
+        <div className="search-bar">
+          <form action="#">
+            <input type="text" placeholder="Search..." name="search" />
+            <button type="submit">Search</button>
+          </form>
         </div>
-
-        <div class="product-grid">
-          {/* Map over ALL products, but conditionally render */}
-          {filteredProducts.map(product => (
-            <div
-              className="product"
-              key={product.name}
-              style={{ display: filteredProducts.includes(product) ? 'block' : 'none' }}
-            >
-            <img src={product.image} alt="IoTBay" className="product-image"></img>
-            <div className="product-info">
-              <h3>{product.name}</h3>
-              <p>{product.price}</p>
-            </div> 
-          </div>
-        ))}
-      </div>
-        </body>
-
-
-        <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2024 ISD Vantablack</p> 
-            <ul class="footer-links">
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="/adminPage">Admin Login</a></li>
-            </ul>
+        <div className="product-grid">
+          {products.map((product) => (
+            <div className="product" key={product.productId}>
+              <img
+                src={product.productImage}
+                alt={product.productName}
+                className="logo-image"
+              />
+              <div className="product-info">
+                <h3>{product.productName}</h3>
+                <p>${product.productPrice}</p>
+                <button onClick={() => addToCart(product.productId, 1)}>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
-    </footer>
-        </main>
-
-  )
+      </body>
+      <footer className="site-footer">
+        <div className="footer-content">
+          <p>&copy; 2024 ISD Vantablack</p>
+          <ul className="footer-links">
+            <li>
+              <Link to="/aboutus">About Us</Link>
+            </li>
+            <li>
+              <a href="#">Contact</a>
+            </li>
+            <li>
+              <a href="#">Terms</a>
+            </li>
+            <li>
+              <Link to="/adminPage">Admin Login</Link>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>
+  );
 }

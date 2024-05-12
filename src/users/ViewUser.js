@@ -35,11 +35,11 @@ const ViewUsers = () => {
 
   return (
     <div>
-      <h2>Account Details</h2>
+      <h2>Account Details For {userEmail}</h2>
       <ul class="accountDetails">
         {filteredUsers.map((user) => (
           <li key={user.id}>
-            Email: {user.email} <br />
+            User ID: {user.id} <br />
             First Name: {user.firstName} <br />
             Last Name: {user.lastName} <br />
             Date of Birth:{user.dob} <br />
@@ -48,6 +48,9 @@ const ViewUsers = () => {
             Street Number: {user.streetNumber} <br />
             Post Code: {user.postCode} <br />
             Gender: {user.gender} <br />
+            Credit Card: {user.card} <br />
+            Expiration: {user.expiration} <br />
+            Cvv: {user.cvv} <br />
           </li>
         ))}
       </ul>
