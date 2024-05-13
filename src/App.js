@@ -28,6 +28,8 @@ import EditShipping from './shipping/EditShipping';
 import AddShipping from './shipping/AddShipping';
 import ViewShipping from './shipping/ViewShipping';
 import Address from './pages/Address';
+import ShipmentHistory from './pages/shipmentHistory';
+import HistoryBranch from './pages/historyBranch';
 
 function App() {
   return (
@@ -44,25 +46,27 @@ function App() {
         <Route exact path ="/accountPage" element={<AccountPage/>}/>
         <Route excat path ="/login" element={<Login/>}/>
         <Route excat path ="/AboutUs" element={<AboutUs/>}/>
-        <Route excat path="/welcome" element={<Welcome />} />
-        <Route excat path="/success" element={<Success />} />
-        <Route excat path="/PaymentAdd" element={<PaymentAdd />} />        
+        <Route excat path="/welcome" element={<Welcome/>}/>
+        <Route excat path="/success" element={<Success/>}/>
+        <Route excat path="/PaymentAdd" element={<PaymentAdd/>}/>        
         <Route exact path ="/aboutUs" element={<AboutUs/>}/>
         <Route exact path ="/login" element={<Login/>}/>
-        <Route exact path="/welcome" element={<Welcome />} />
-        <Route exact path="/view" element={<View />} />
-        <Route exact path="/edit" element={<Edit />} /> 
-        <Route exact path="/logs" element={<Logs />} />
-        <Route exact path="/paymentHistory" element={<PaymentHistory />} />
-        <Route exact path="/paymentDetail" element={<PaymentDetail />} />
-        <Route exact path="/Cart" element={<Cart />} />
-        <Route exact path="/OrderHistory" element={<OrderHistory />} />
+        <Route exact path="/welcome" element={<Welcome/>}/>
+        <Route exact path="/view" element={<View/>}/>
+        <Route exact path="/edit" element={<Edit/>}/> 
+        <Route exact path="/logs" element={<Logs/>}/>
+        <Route exact path="/paymentHistory" element={<PaymentHistory/>}/>
+        <Route exact path="/paymentDetail" element={<PaymentDetail/>}/>
+        <Route exact path="/Cart" element={<Cart/>}/>
+        <Route exact path="/OrderHistory" element={<OrderHistory/>}/>
+        <Route exact path="/historyBranch" element={<HistoryBranch/>}/>
+        <Route exact path="/shipmentHistory" element={<ShipmentHistory/>}/>
 
 
-        <Route exact path="/address" element={<Address />} />
+        <Route exact path="/address" element={<Address/>}/>
         <Route exact path='/addaddress' element={<AddShipping/>}/>
-        <Route path="/address/view/:id" element={<ViewShipping />} />
-        <Route path="/address/edit/:id" element={<EditShipping />} />
+        <Route path="/address/view/:id" element={<ViewShipping />}/>
+        <Route path="/address/edit/:id" element={<EditShipping />}/>
 
 
 

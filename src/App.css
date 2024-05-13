@@ -44,9 +44,9 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #ffffff; 
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-height: 60vh;
 }
 
 .bodymainCSS{
@@ -335,7 +335,6 @@ nav {
   font-weight: bold;
 }
 
-
 .welcAdm{
   color: #000000;
   font-size: 20px;
@@ -348,7 +347,7 @@ nav {
 /*FOOTER*/
 footer {
 text-align: center;
-margin-top: auto;
+margin-top: 5rem;
 background: rgba(0, 0, 0, 0.5);
 } 
 
@@ -472,7 +471,7 @@ background: rgba(0, 0, 0, 0.5);
   flex: 2; /* Allow text to take more space  */
 }
 
-.accountDetails ul li { 
+.accountDetails li { 
   list-style-type: none; 
 }
 
@@ -489,82 +488,112 @@ background: rgba(0, 0, 0, 0.5);
   }
 }
 
-.accountDetails ul li { 
-  list-style-type: none; 
+
+
+/* Account Details CSS */
+.account-details-container {
+  display: grid;           /* Use CSS Grid for layout */
+  grid-template-columns: repeat(3, 1fr); /* Create 3 equal-width columns */
+  gap: 20px;             /* Add spacing between columns */
+  margin-top: 5rem;
 }
 
-.content-display1 {
-  position: absolute;
-  inset-inline-start: 300px;
-  inset-block-start: 300px;
-  color: #ffffff;
-  font-size: 30px;
-  text-align: center;
-  margin: 10px;
-  padding: 20px;
-  background-color: #3f3f3f;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  text-decoration: none;
+.column {
+  display: flex;
+  flex-direction: column; /* Arrange links vertically within each column */
+  gap: 15px;             /* Add spacing between links in a column */
 }
 
-.content-display2 {
-  position: absolute;
-  inset-inline-start: 300px;
-  inset-block-start: 200px;
-  color: #ffffff;
-  font-size: 30px;
-  text-align: center;
-  margin: 10px;
-  padding: 20px;
-  background-color: #3f3f3f;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  text-decoration: none;
+/* Optional: if you want a vertical layout on small screens */
+@media (max-width: 600px) {
+  .account-details-container {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
 }
 
-.content-display3 {
-  position: absolute;
-  inset-inline-start: 1100px;
-  inset-block-start: 200px;
-  color: #ffffff;
-  font-size: 30px;
-  text-align: center;
-  margin: 10px;
-  padding: 20px;
-  background-color: #3f3f3f;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  text-decoration: none;
+.account-btn {
+  padding: 15px 30px; /* Smaller padding */
+  font-size: 16px;   /* Slightly smaller font */
+  font-weight: bold; 
+  color: white;     
+  border: none;
+  border-radius: 8px; 
+  text-decoration: none; 
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgb(38, 204, 198); 
 }
 
-.content-display4 {
-  position: absolute;
-  inset-inline-start: 725px;
-  inset-block-start: 200px;
-  color: #ffffff;
-  font-size: 30px;
-  text-align: center;
-  margin: 10px;
-  padding: 20px;
-  background-color: #3f3f3f;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  text-decoration: none;
+.account-btn:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: rgb(31, 167, 163);
 }
 
-.content-display5 {
-  position: absolute;
-  inset-inline-start: 1100px;
-  inset-block-start: 300px;
-  color: #ffffff;
-  font-size: 30px;
-  text-align: center;
-  margin: 10px;
-  padding: 20px;
-  background-color: #3f3f3f;
-  border: 1px solid #000000;
-  border-radius: 5px;
-  text-decoration: none;
 
+
+
+
+/* History Branch CSS */
+.account-history-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Increase spacing a bit */
+}
+
+.account-history-container a { 
+  text-decoration: none;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .account-history-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.history-btn {
+  padding: 20px 36px;  
+  font-size: 40px;     
+  font-weight: bold; /* Make the text bold */ 
+  color: white;     /* Make the text white */
+  border: none;
+  border-radius: 8px; 
+  text-decoration: none; /* Remove underlines from links */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.history-btn:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.order-history {
+  background-color: #28a745; /* Green */
+}
+
+.order-history:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.shipment-history {
+  background-color: #ffc107; /* Yellow */
+}
+
+.shipment-history:hover {
+  background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.payment-history {
+  background-color: #dc3545; /* Red */
+}
+
+.payment-history:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.history-branch-body {
+  margin-top: 100px; /* Adjust as needed */
 }

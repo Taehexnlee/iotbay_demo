@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from 'react'
+
 export default function Home() {
    
   return (
-  
-   
-
-    <main>
+   <main>
       <body>
       <p class="hometext">Welcome to the IoTBay Website!</p>
     
-
-    
-
-    <footer>
-      <p class="copyright">Vantablack Group 2024</p>
-    </footer>
-
-
     <footer class="site-footer">
         <div class="footer-content">
             <p>&copy; 2024 ISD Vantablack</p> 
