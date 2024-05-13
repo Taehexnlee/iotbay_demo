@@ -535,3 +535,48 @@ background: rgba(0, 0, 0, 0.5);
 .accountDetails ul li { 
   list-style-type: none; 
 }
+
+.content-display1 {
+  position: absolute;
+  inset-inline-start: 300px;
+  inset-block-start: 200px;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.content-display2 {
+  position: absolute;
+  inset-inline-start: 300px;
+  inset-block-start: 300px;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.content-display3 {
+  position: absolute;
+  inset-inline-start: 1100px;
+  inset-block-start: 200px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+  float: inline-end;
+}
+
+.content-display4 {
+  position: absolute;
+  inset-inline-start: 700px;
+  inset-block-start: 200px;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 10px;
+  text-decoration: none;
+}

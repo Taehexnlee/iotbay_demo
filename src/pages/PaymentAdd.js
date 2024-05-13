@@ -43,7 +43,7 @@ export default function Payment() {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/payment-options', paymentDetails);
+            const response = await axios.post('http://localhost:8080/user/${userId}/payment-options', paymentDetails);
             if (response.status === 200) {
                 navigate('/success');
             } else {
@@ -99,7 +99,7 @@ export default function Payment() {
                         onClick={() => toggleSelected('Bpay')}>
                         Bpay
                     </button>
-                    <button onClick={handleSuccess} className='btn btn-success w-100'>Confirm</button>
+                    <button type="submit" className='btn btn-success w-100'>Confirm</button>
                 </form>
             </div>
         </div>
