@@ -53,15 +53,9 @@ const Navbar = () => {
                     </>
                 ) : (
                     <>
-                        
                         <li>
-                            <Link to="/view" className="login-button view-account-button">My Account</Link>
-                        </li>
-                        <li>
-                            <Link to="/edit" className="login-button edit-account-button">Edit Account</Link>
-                        </li>
-                        <li>
-                            <Link to="/logs" className="login-button view-logs-button">View Logs</Link>
+                            <Link to="/accountPage"className="login-button view-account-button">My Account</Link>
+
                         </li>
                         <li>
                             <Link to="/address" className="login-button view-logs-button">Address</Link>

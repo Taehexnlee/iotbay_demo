@@ -489,40 +489,82 @@ background: rgba(0, 0, 0, 0.5);
   }
 }
 
-/* Product Grid Layout */
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); 
-  gap: 10px;
-  justify-content: center;
+.accountDetails ul li { 
+  list-style-type: none; 
 }
 
-/* Individual Product Styling */
-.product {
+.content-display1 {
+  position: absolute;
+  inset-inline-start: 300px;
+  inset-block-start: 300px;
+  color: #ffffff;
+  font-size: 30px;
   text-align: center;
-  justify-content: center;
-  place-items: center inset(10px);
-  max-width: 280px; /* Adjust the value to your preference */
-  margin: 0 auto;    /* Center the container horizontally within the grid cell */
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
-/* Product Image Styling */
-.product-image {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid black;
+.content-display2 {
+  position: absolute;
+  inset-inline-start: 300px;
+  inset-block-start: 200px;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
-/* Add this for responsive behavior */
-@media (max-width: 768px) { 
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.content-display3 {
+  position: absolute;
+  inset-inline-start: 1100px;
+  inset-block-start: 200px;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-decoration: none;
 }
 
-@media (max-width: 480px) {
-  .product-grid {
-    grid-template-columns: 1fr; 
-  }
+.content-display4 {
+  position: absolute;
+  inset-inline-start: 725px;
+  inset-block-start: 200px;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.content-display5 {
+  position: absolute;
+  inset-inline-start: 1100px;
+  inset-block-start: 300px;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-decoration: none;
 
 }

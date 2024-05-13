@@ -12,7 +12,7 @@ import AboutUs from './pages/AboutUs';
 import HardwareHome from './pages/HardwareHome';
 import SoftwareHome from './pages/SoftwareHome';
 import Welcome from './pages/Welcome';
-import Payment from './pages/PaymentPage';
+import AccountPage from './pages/AccountPage';
 import Success from './pages/success';
 import StockManager from './pages/stockManager';
 import AdminPage from './pages/adminPage';
@@ -20,6 +20,8 @@ import PaymentAdd from './pages/PaymentAdd';
 import View from './pages/View';
 import Edit from './pages/Edit';
 import Logs from './pages/logs';
+import PaymentHistory from './pages/PaymentHistory';
+import PaymentDetail from './pages/PaymentDetail';
 import Cart from './pages/Cart';
 import OrderHistory from './pages/OrderHistory';
 import EditShipping from './shipping/EditShipping';
@@ -39,7 +41,7 @@ function App() {
         <Route exact path ="/adminpage" element={<AdminPage/>}/>
         <Route exact path ="/softwareHome" element={<SoftwareHome/>}/>
         <Route exact path ="/hardwareHome" element={<HardwareHome/>}/>
-        <Route exact path ="/PaymentPage" element={<Payment/>}/>
+        <Route exact path ="/accountPage" element={<AccountPage/>}/>
         <Route excat path ="/login" element={<Login/>}/>
         <Route excat path ="/AboutUs" element={<AboutUs/>}/>
         <Route excat path="/welcome" element={<Welcome />} />
@@ -51,6 +53,8 @@ function App() {
         <Route exact path="/view" element={<View />} />
         <Route exact path="/edit" element={<Edit />} /> 
         <Route exact path="/logs" element={<Logs />} />
+        <Route exact path="/paymentHistory" element={<PaymentHistory />} />
+        <Route exact path="/paymentDetail" element={<PaymentDetail />} />
         <Route exact path="/Cart" element={<Cart />} />
         <Route exact path="/OrderHistory" element={<OrderHistory />} />
 
