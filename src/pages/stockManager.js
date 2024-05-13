@@ -105,12 +105,20 @@ export default function AdminView() {
                 <table>
                     <thead>
                     <tr>
-                        <th>Product Name</th>
-                        <th>Product Code</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Update Stock</th>
-                        <th>Delete from Website</th>
+                        <th>
+                            <button onClick={() => handleSort('name')}>Product Name (sort ↨)</button>
+                        </th>
+                        <th>
+                            <button onClick={() => handleSort('id')}>Product Code (sort ↨)</button>
+                        </th>
+                        <th>
+                            <button onClick={() => handleSort('price')}>Price (sort ↨)</button>
+                        </th>
+                        <th>
+                            <button onClick={() => handleSort('quantity')}>Quantity (sort ↨)</button>
+                        </th>
+                        <th>Add to website</th>
+                        <th>Delete from website</th>
                     </tr>
                     </thead>
                     <tbody>
