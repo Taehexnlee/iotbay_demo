@@ -99,7 +99,7 @@ export default function Payment() {
                         onClick={() => toggleSelected('Bpay')}>
                         Bpay
                     </button>
-                    <button type="submit" className='btn btn-success w-100'>Confirm</button>
+                    <button onClick={handleSuccess} className='btn btn-success w-100'>Confirm</button>
                 </form>
             </div>
         </div>

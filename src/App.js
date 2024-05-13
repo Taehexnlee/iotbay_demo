@@ -21,6 +21,7 @@ import View from './pages/View';
 import Edit from './pages/Edit';
 import Logs from './pages/logs';
 import PaymentHistory from './pages/PaymentHistory';
+import PaymentDetail from './pages/PaymentDetail';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
         <Route exact path="/edit" element={<Edit />} />
         <Route exact path="/logs" element={<Logs />} />
         <Route exact path="/paymentHistory" element={<PaymentHistory />} />
+        <Route exact path="/paymentDetail" element={<PaymentDetail />} />
 
 
         <Route exact path ="/adduser" element={<AddUser/>}/>
