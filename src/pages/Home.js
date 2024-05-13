@@ -1,34 +1,42 @@
 import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Link, useParams } from 'react-router-dom';
 export default function Home() {
-   
+    const [users, setUser] = useState([])
+    const {id} =useParams()
+    
+    useEffect(()=>{
+       loadUsers();
+       //deleteUser();
+    },[])
+
+    const loadUsers =async() =>{
+        const result =await axios.get("http://localhost:8080/users")
+        setUser(result.data)
+    }
+    const deleteUser =async(id) =>
+    {
+        await axios.delete(`http://localhost:8080/user/${id}`)
+        loadUsers()
+    }
   return (
-  
-   
+    
+    <div className='container'>
+        <div className='py-4'>
+        <header>
+        <h1 class="Welcome-Text">Welcome to the IoTBay Website</h1>
+    </header>
 
     <main>
-      <body>
-      <p class="hometext">Welcome to the IoTBay Website!</p>
-    
+      <p class="hometext">You can browse products, login, or register</p>
+    </main>
 
-    
 
     <footer>
       <p class="copyright">Vantablack Group 2024</p>
     </footer>
 
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2024 ISD Vantablack</p> 
-            <ul class="footer-links">
-                <li><a href="/aboutus">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">Terms</a></li>
-                <li><a href="/adminPage">Admin Login</a></li>
-            </ul>
         </div>
-    </footer>
-</body>
-  </main>       
+    </div>
   )
 }

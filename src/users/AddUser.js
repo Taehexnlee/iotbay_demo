@@ -303,7 +303,7 @@ export default function AddUser() {
             </div>
           </div>
         </div>
-   
+        );
       </body>
       <footer class="site-footer">
         <div class="footer-content">
