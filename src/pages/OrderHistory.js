@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from 'react-router-dom';
-
 
 const OrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState([]);
 
-  
   useEffect(() => {
     fetchOrderHistory();
   }, []);
@@ -14,7 +11,7 @@ const OrderHistory = () => {
   const fetchOrderHistory = async () => {
     try {
       // Make a request to fetch order history based on the session identifier
-      const response = await axios.get("http://localhost:8080/OrderHistory", {
+      const response = await axios.get("http://localhost:8080/order/history", {
         params: {
           sessionIdentifier: "your_session_identifier", // Replace with actual session identifier
         },
@@ -22,17 +19,53 @@ const OrderHistory = () => {
       setOrderHistory(response.data);
     } catch (error) {
       console.error("Failed to fetch order history:", error);
+      setOrderHistory([]);
     }
   };
 
-  // Function to search order history
-  const searchOrderHistory = async (searchTerm) => {
+  const searchOrderHistoryById = async (searchTerm) => {
     try {
-      const response = await axios.get(`/api/orders?search=${searchTerm}`);
+      const response = await axios.get("http://localhost:8080/order/history", {
+        params: {
+          orderId: searchTerm,
+        },
+      });
       setOrderHistory(response.data);
     } catch (error) {
-      console.error("Error searching order history:", error);
+      console.error("Error searching order history by ID:", error);
+      setOrderHistory([]);
     }
+  };
+
+  const handleSearchByDate = () => {
+    const searchDateTime = new Date(searchDate);
+    const formattedSearchDateTime = searchDateTime.toLocaleString("en-US", {
+      month: "numeric",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+    });
+
+    const filteredOrders = orderHistory.filter((order) => {
+      const submissionDateTime = new Date(order.submissionTime);
+      const formattedSubmissionDateTime = submissionDateTime.toLocaleString(
+        "en-US",
+        {
+          month: "numeric",
+          day: "numeric",
+          year: "numeric",
+          hour: "numeric",
+          minute: "numeric",
+          second: "numeric",
+          hour12: true,
+        }
+      );
+      return formattedSubmissionDateTime === formattedSearchDateTime;
+    });
+    setOrderHistory(filteredOrders);
   };
 
   return (
@@ -42,9 +75,38 @@ const OrderHistory = () => {
       <div>
         <input
           type="text"
-          placeholder="Search by order number or date..."
-          onChange={(e) => searchOrderHistory(e.target.value)}
+          placeholder="Search by order number..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          style={{ width: "400px" }}
         />
+        <button onClick={() => searchOrderHistoryById(searchTerm)}>
+          Search
+        </button>
+      </div>
+      <div>
+        <input
+          type="text"
+          placeholder="Search by date...MM/DD/YYYY, hh:mm:ss AM"
+          value={searchDate}
+          onChange={(e) => setSearchDate(e.target.value)}
+          style={{ width: "400px" }}
+        />
+        <button onClick={handleSearchByDate}>Search</button>
+      </div>
+      <div>
+        <button
+          onClick={fetchOrderHistory}
+          style={{
+            backgroundColor: "blue",
+            color: "white",
+            padding: "5px 10px",
+            borderRadius: "5px",
+            border: "none",
+          }}
+        >
+          Fetch All
+        </button>
       </div>
       {orderHistory.length === 0 ? (
         <p>No orders found.</p>
@@ -67,7 +129,6 @@ const OrderHistory = () => {
           ))}
         </div>
       )}
-     
     </div>
   );
 };
