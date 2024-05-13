@@ -44,14 +44,21 @@ const Cart = () => {
 
   const saveOrder = async () => {
     try {
-      console.log("cart items:", cartItems);
-      await axios.post("http://localhost:8080/order/save", cartItems);
-      alert("Order saved successfully!");
+        const submissionTime = new Date().toString(); // Get current time
+        console.log("cart items:", cartItems);
+        console.log("time:", submissionTime);
+        await axios.post("http://localhost:8080/order/save", {
+            cartItems: cartItems,
+            submissionTime: submissionTime // Send submission time
+        });
+        alert("Order saved successfully!");
     } catch (error) {
-      console.error("Failed to save order:", error);
-      alert("Failed to save order. Please try again later.");
+        console.error("Failed to save order:", error);
+        alert("Failed to save order. Please try again later.");
     }
-  };
+};
+
+
 
   return (
     <div>

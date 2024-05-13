@@ -23,6 +23,7 @@ import Logs from './pages/logs';
 import Cart from './pages/Cart';
 import OrderHistory from './pages/OrderHistory';
 import AddProduct from "./pages/AddProduct";
+import EditOrder from './pages/EditOrder';
 
 function App() {
   return (
@@ -51,6 +52,8 @@ function App() {
         <Route exact path="/Cart" element={<Cart />} />
         <Route exact path="/OrderHistory" element={<OrderHistory />} />
         <Route exact path="/AddProduct" element={<AddProduct />} />
+        <Route exact path="/EditOrder/:orderId/edit" element={<EditOrder />} />
+        <Route path="*" render={() => <div>404 Not Found</div>} /> {/* Handle 404 Not Found */}
 
 
         <Route exact path ="/adduser" element={<AddUser/>}/>
