@@ -539,22 +539,30 @@ background: rgba(0, 0, 0, 0.5);
 .content-display1 {
   position: absolute;
   inset-inline-start: 300px;
-  inset-block-start: 200px;
+  inset-block-start: 300px;
+  color: #ffffff;
   font-size: 30px;
-  margin: 10px;
-  padding: 10px;
   text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
   text-decoration: none;
 }
 
 .content-display2 {
   position: absolute;
   inset-inline-start: 300px;
-  inset-block-start: 300px;
+  inset-block-start: 200px;
+  color: #ffffff;
   font-size: 30px;
-  margin: 10px;
-  padding: 10px;
   text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
   text-decoration: none;
 }
 
@@ -562,21 +570,28 @@ background: rgba(0, 0, 0, 0.5);
   position: absolute;
   inset-inline-start: 1100px;
   inset-block-start: 200px;
+  color: #ffffff;
   font-size: 30px;
   text-align: center;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
   text-decoration: none;
-  float: inline-end;
 }
 
 .content-display4 {
   position: absolute;
-  inset-inline-start: 700px;
+  inset-inline-start: 725px;
   inset-block-start: 200px;
+  color: #ffffff;
   font-size: 30px;
   text-align: center;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
   text-decoration: none;
 }

@@ -50,7 +50,7 @@ const Navbar = () => {
                 ) : (
                     <>
                         <li>
-                            <Link to="/PaymentPage"className="login-button view-account-button">My Account</Link>
+                            <Link to="/accountPage"className="login-button view-account-button">My Account</Link>
                         </li>
                         <li>
                             <button onClick={handleLogout} className="login-button logout-button">Logout</button>

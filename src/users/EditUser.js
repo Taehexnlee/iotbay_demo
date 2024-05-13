@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const EditUser = () => {
   const navigate = useNavigate();
@@ -69,7 +69,7 @@ const EditUser = () => {
         `http://localhost:8080/user/${user.id}`,
         user
       );
-      navigate(`/view`);
+      navigate(`/success`);
       console.log("Response from server:", response.data);
       return response.data;
     } catch (error) {
