@@ -99,6 +99,9 @@ export default function AdminView() {
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
+                <Link to="/AddProduct">
+                    <button>Add Product</button>
+                </Link>
             </div>
 
             <div className="stock-table">

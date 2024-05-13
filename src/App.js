@@ -22,6 +22,7 @@ import Edit from './pages/Edit';
 import Logs from './pages/logs';
 import Cart from './pages/Cart';
 import OrderHistory from './pages/OrderHistory';
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   return (
@@ -49,7 +50,7 @@ function App() {
         <Route exact path="/logs" element={<Logs />} />
         <Route exact path="/Cart" element={<Cart />} />
         <Route exact path="/OrderHistory" element={<OrderHistory />} />
-
+        <Route exact path="/AddProduct" element={<AddProduct />} />
 
 
         <Route exact path ="/adduser" element={<AddUser/>}/>
