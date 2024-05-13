@@ -1,48 +1,106 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const PaymentOptions = () => {
-  const [payments, setPayments] = useState([]);
-  const userId = JSON.parse(localStorage.getItem("user"))?.id;
-  const navigate = useNavigate();
+import paymentValidation from '../pages/PaymentValidation';
 
-  useEffect(() => {
-    if (!userId) {
-      navigate("/login");
-      return;
-    }
-    // Fetch payment details for the logged-in user from the backend
-    axios.get(`http://localhost:8080/api/payment/${userId}`)
-      .then((response) => {
-        console.log("Fetched payment details from backend:", response.data);
-        setPayments(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching payment details:", error);
-      });
-  }, [userId, navigate]);
+export default function Payment() {
+    let navigate = useNavigate();
 
-  const handleAddPayment = () => {
-    navigate('/paymentAdd');
-  };
+    const [selectedMethod, setSelectedMethod] = useState();
 
-  return (
-    <div>
-      <h2>Payments</h2>
-      <h3>Payment options</h3>
-      <ul className="paymentDetails">
-        {payments.map((payment) => (
-          <li key={payment.id}>
-            Credit Card: **** **** **** {payment.cardNumber.slice(-4)} <br />
-            Expiration: {payment.expiration} <br />
-            Card Type: {payment.cardtype} <br />
-          </li>
-        ))}
-      </ul>
-      <button onClick={handleAddPayment} className="btn btn-primary">Add Payment</button>
-    </div>
-  );
-};
+    const toggleSelected = (cardtype) => {
+        setSelectedMethod(cardtype);
+        setPaymentDetails(prevDetails => ({ ...prevDetails, cardtype }));
+    };
 
-export default PaymentOptions;
+    const [paymentDetails, setPaymentDetails] = useState({
+        cardNumber: "",
+        expirationDate: "",
+        cvv: "",
+        cardtype: ""
+    });
+    const [errors, setErrors] = useState({
+        cardNumberError: "",
+        expirationDateError: "",
+        cvvError: ""
+    });
+
+    const handleInput = (event) => {
+        const { name, value } = event.target;
+        setPaymentDetails({ ...paymentDetails, [name]: value });
+    };
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        console.log("Form submission started");
+        setPaymentDetails(prevDetails => ({ ...prevDetails, cardtype: selectedMethod }));
+        const validationErrors = paymentValidation(paymentDetails);
+
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        console.log('payment details', paymentDetails);
+
+        try {
+            console.log('Sending payment details:', paymentDetails);
+            const response = await axios.post('http://localhost:8080/payment', paymentDetails);
+            if (response.status === 200) {
+                navigate('/success');
+            } else {
+                setErrors({ ...errors, payment: "Payment processing was not successful. Please try again later." });
+            }
+        } catch (error) {
+            console.error('Failed to submit payment:', error);
+            setErrors({ ...errors, payment: "Payment failed. Please try again later." });
+        }
+    };
+
+    return (
+        <div className='d-flex justify-content-center align-items-center bg-white'>
+            <div className='bg-white p-3 row'>
+                <form onSubmit={handleSubmit}>
+                    <div className='mb-3'>
+                        <label htmlFor='cardNumber'><strong>Credit Card</strong></label>
+                        <input type='text' placeholder='Enter CardNumber' name='cardNumber'
+                               value={paymentDetails.cardNumber} onChange={handleInput} className='form-control rounded'/>
+                        {errors.cardNumberError && <span className='text-danger'>{errors.cardNumberError}</span>}
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor='expirationDate'><strong>Expiration</strong></label>
+                        <input type='text' placeholder='Enter Expiration MM/YY' name='expirationDate'
+                               onChange={handleInput} className='form-control rounded'/>
+                        {errors.expirationDateError &&
+                            <span className='text-danger'>{errors.expirationDateError}</span>}
+                    </div>
+                    <div className='mb-3'>
+                        <label htmlFor='cvv'><strong>CVV</strong></label>
+                        <input type='text' placeholder='Enter CVV' name='cvv'
+                               onChange={handleInput} className='form-control rounded'/>
+                        {errors.cvvError && <span className='text-danger'>{errors.cvvError}</span>}
+                    </div>
+
+                    {errors.auth && <div className="alert alert-danger" role="alert">{errors.auth}</div>}
+                    <button type="button"
+                        className={`btn ${selectedMethod === 'Visa' ? 'btn-dark' : 'btn-outline-dark'}`}
+                        onClick={() => toggleSelected('Visa')}>
+                        Visa
+                    </button>
+                    <button type="button"
+                        className={`btn ${selectedMethod === 'MasterCard' ? 'btn-dark' : 'btn-outline-dark'}`}
+                        onClick={() => toggleSelected('MasterCard')}>
+                        MasterCard
+                    </button>
+                    <button type="button"
+                        className={`btn ${selectedMethod === 'Bpay' ? 'btn-dark' : 'btn-outline-dark'}`}
+                        onClick={() => toggleSelected('Bpay')}>
+                        Bpay
+                    </button>
+                    <button type="submit" className='btn btn-success w-100'>Confirm</button>
+                </form>
+            </div>
+        </div>
+    );
+}

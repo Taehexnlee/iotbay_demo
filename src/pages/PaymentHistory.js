@@ -4,19 +4,16 @@ import axios from 'axios';
 const paymentHistory = () => {
 
     return (
-        <div className="order-details">
+        <div className="payment-details">
             <h2>Payment History</h2>
-                <div className="order-info">
-                    <p>Order Info</p>
+                <div className="order-number">
+                    <p>Order Number</p>
                 </div>
-                <div className="delivery-info">
-                    <p>Delivery Info</p>
+                <div className="payment-amount">
+                    <p>Payment Amount</p>
                 </div>
-                <div className="item-info">
-                    <p>Item Info</p>
-                </div>
-                <div className="payment-info">
-                    <p>Payment Info</p>
+                <div className="payment-method-detail">
+                    <p>Payment Method Details"</p>
                 </div>
         </div>
     );
