@@ -44,21 +44,26 @@ const Cart = () => {
 
   const saveOrder = async () => {
     try {
-        const submissionTime = new Date().toString(); // Get current time
-        console.log("cart items:", cartItems);
-        console.log("time:", submissionTime);
-        await axios.post("http://localhost:8080/order/save", {
-            cartItems: cartItems,
-            submissionTime: submissionTime // Send submission time
-        });
-        alert("Order saved successfully!");
+      const submissionTime = new Date().toString(); // Get current time
+      console.log("cart items:", cartItems);
+      console.log("time:", submissionTime);
+      await axios.post("http://localhost:8080/order/save", {
+        cartItems: cartItems,
+        submissionTime: submissionTime, // Send submission time
+      });
+      alert("Order saved successfully!");
     } catch (error) {
-        console.error("Failed to save order:", error);
-        alert("Failed to save order. Please try again later.");
+      console.error("Failed to save order:", error);
+      alert("Failed to save order. Please try again later.");
     }
-};
+  };
 
-
+  const handleProceedToCheckout = async () => {
+    // Call saveOrder before proceeding to checkout
+    await saveOrder();
+    // Redirect to the payment page
+    window.location.href = "/PaymentAdd";
+  };
 
   return (
     <div>
@@ -92,7 +97,8 @@ const Cart = () => {
               .toFixed(2)}
           </p>
           <button onClick={saveOrder}>Save Order</button>
-          <Link to="/PaymentAdd">Proceed to Checkout</Link>
+          {/* Use handleProceedToCheckout instead of directly linking */}
+          <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
         </div>
       )}
     </div>
