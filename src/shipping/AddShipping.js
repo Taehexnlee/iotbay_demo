@@ -10,7 +10,7 @@ export default function AddShipping() {
         street: "",
         city: "",
         state: "",
-        zipCode: "",
+        zipCode: ""
     });
     const [error, setError] = useState(false);
 
