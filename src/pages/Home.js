@@ -1,26 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
-import { Link, useParams } from 'react-router-dom';
 export default function Home() {
-    const [users, setUser] = useState([])
-    const {id} =useParams()
-    
-    useEffect(()=>{
-       loadUsers();
-       //deleteUser();
-    },[])
-
-    const loadUsers =async() =>{
-        const result =await axios.get("http://localhost:8080/users")
-        setUser(result.data)
-    }
-    const deleteUser =async(id) =>
-    {
-        await axios.delete(`http://localhost:8080/user/${id}`)
-        loadUsers()
-    }
+   
   return (
-    
+  
    
 
     <main>
@@ -28,7 +10,7 @@ export default function Home() {
       <p class="hometext">Welcome to the IoTBay Website!</p>
     
 
-
+    
 
     <footer>
       <p class="copyright">Vantablack Group 2024</p>
@@ -47,6 +29,6 @@ export default function Home() {
         </div>
     </footer>
 </body>
- </main>       
+  </main>       
   )
 }

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link, useParams } from 'react-router-dom';
+
 
 const OrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState([]);
 
+  
   useEffect(() => {
     fetchOrderHistory();
   }, []);
@@ -11,7 +14,7 @@ const OrderHistory = () => {
   const fetchOrderHistory = async () => {
     try {
       // Make a request to fetch order history based on the session identifier
-      const response = await axios.get("http://localhost:8080/order/history", {
+      const response = await axios.get("http://localhost:8080/OrderHistory", {
         params: {
           sessionIdentifier: "your_session_identifier", // Replace with actual session identifier
         },
@@ -35,6 +38,7 @@ const OrderHistory = () => {
   return (
     <div>
       <h1>Order History</h1>
+      
       <div>
         <input
           type="text"
@@ -63,6 +67,7 @@ const OrderHistory = () => {
           ))}
         </div>
       )}
+     
     </div>
   );
 };

@@ -22,6 +22,10 @@ import Edit from './pages/Edit';
 import Logs from './pages/logs';
 import Cart from './pages/Cart';
 import OrderHistory from './pages/OrderHistory';
+import EditShipping from './shipping/EditShipping';
+import AddShipping from './shipping/AddShipping';
+import ViewShipping from './shipping/ViewShipping';
+import Address from './pages/Address';
 
 function App() {
   return (
@@ -45,10 +49,16 @@ function App() {
         <Route exact path ="/login" element={<Login/>}/>
         <Route exact path="/welcome" element={<Welcome />} />
         <Route exact path="/view" element={<View />} />
-        <Route exact path="/edit" element={<Edit />} />
+        <Route exact path="/edit" element={<Edit />} /> 
         <Route exact path="/logs" element={<Logs />} />
         <Route exact path="/Cart" element={<Cart />} />
         <Route exact path="/OrderHistory" element={<OrderHistory />} />
+
+
+        <Route exact path="/address" element={<Address />} />
+        <Route exact path='/addaddress' element={<AddShipping/>}/>
+        <Route path="/address/view/:id" element={<ViewShipping />} />
+        <Route path="/address/edit/:id" element={<EditShipping />} />
 
 
 
