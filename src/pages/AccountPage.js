@@ -9,6 +9,7 @@ const AccountPage = () => {
         <Link to="/view" className="content-display2">My Account Details</Link>
         <Link to="/paymentHistory" className="content-display3">Payment History</Link>
         <Link to="/logs" className="content-display4">View Logs</Link>
+        <Link to="/paymentDetail" className="content-display5">Payment Detail</Link>
     </div>
   );
 };

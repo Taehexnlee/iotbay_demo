@@ -595,3 +595,18 @@ background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   text-decoration: none;
 }
+
+.content-display5 {
+  position: absolute;
+  inset-inline-start: 1100px;
+  inset-block-start: 300px;
+  color: #ffffff;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  background-color: #3f3f3f;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  text-decoration: none;
+}
