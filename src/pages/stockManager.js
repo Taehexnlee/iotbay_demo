@@ -39,6 +39,22 @@ export default function AdminView() {
         }
     };
 
+    const updateStock = async (productId, newQuantity) => {
+        try {
+            const response = await axios.put(`http://localhost:8080/products/${productId}/stock`, { quantity: newQuantity });
+            if (response.status === 200) {
+                const updatedProducts = products.map(product =>
+                    product.productId === productId ? { ...product, soh: newQuantity } : product
+                );
+                setProducts(updatedProducts);
+            } else {
+                throw new Error("Failed to update stock");
+            }
+        } catch (error) {
+            console.error("Failed to update stock:", error);
+        }
+    };
+
     const deleteProduct = async (productId) => {
         try {
             const response = await axios.delete(`http://localhost:8080/products/${productId}`);
@@ -81,7 +97,7 @@ export default function AdminView() {
                     type="text"
                     placeholder="Search..."
                     value={searchTerm}
-                    onChange={handleSearch}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
 
@@ -89,12 +105,12 @@ export default function AdminView() {
                 <table>
                     <thead>
                     <tr>
-                        <th><button onClick={() => handleSort('name')}>Product Name (sort ↨)</button></th>
-                        <th><button onClick={() => handleSort('id')}>Product Code (sort ↨)</button></th>
-                        <th><button onClick={() => handleSort('price')}>Price (sort ↨)</button></th>
-                        <th><button onClick={() => handleSort('quantity')}>Quantity (sort ↨)</button></th>
-                        <th>Add to website</th>
-                        <th>Delete from website</th>
+                        <th>Product Name</th>
+                        <th>Product Code</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Update Stock</th>
+                        <th>Delete from Website</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -103,12 +119,26 @@ export default function AdminView() {
                             <td>{product.productName}</td>
                             <td>{product.productId}</td>
                             <td>{product.productPrice}</td>
-                            <td>{product.soh}</td>
                             <td>
-                                <button className="add-button">Add</button>
+                                <input
+                                    type="number"
+                                    defaultValue={product.soh}
+                                    onChange={(e) => product.soh = e.target.value}
+                                />
                             </td>
                             <td>
-                                <button className="delete-button" onClick={() => deleteProduct(product.productId)}>Delete</button>
+                                <button
+                                    onClick={() => updateStock(product.productId, product.soh)}
+                                >
+                                    Update
+                                </button>
+                            </td>
+                            <td>
+                                <button
+                                    onClick={() => deleteProduct(product.productId)}
+                                >
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                     ))}
