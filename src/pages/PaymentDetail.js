@@ -12,6 +12,7 @@ const PaymentOptions = () => {
       navigate("/login");
       return;
     }
+    
     // Fetch payment details for the logged-in user from the backend
     axios.get(`http://localhost:8080/payment`)
       .then((response) => {
@@ -33,7 +34,7 @@ const PaymentOptions = () => {
       <h3>Payment options</h3>
       <ul className="paymentDetails">
         {payments.map((payment) => (
-          <li key={payment.id}>
+          <li key={payment.paymentId}>
             Credit Card: {payment.cardNumber} <br />
             Expiration: {payment.expiration} <br />
             CVV: {payment.cvv} <br />

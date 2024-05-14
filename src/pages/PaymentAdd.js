@@ -1,28 +1,21 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import paymentValidation from '../pages/PaymentValidation';
 
 export default function Payment() {
     let navigate = useNavigate();
 
-    const [selectedMethod, setSelectedMethod] = useState();
-
-    const toggleSelected = (cardtype) => {
-        setSelectedMethod(cardtype);
-        setPaymentDetails(prevDetails => ({ ...prevDetails, cardtype }));
-    };
-
+    const [selectedMethod, setSelectedMethod] = useState('');
     const [paymentDetails, setPaymentDetails] = useState({
         cardNumber: "",
-        expirationDate: "",
+        expiration: "",
         cvv: "",
         cardtype: ""
     });
     const [errors, setErrors] = useState({
         cardNumberError: "",
-        expirationDateError: "",
+        expirationError: "",
         cvvError: ""
     });
 
@@ -31,22 +24,28 @@ export default function Payment() {
         setPaymentDetails({ ...paymentDetails, [name]: value });
     };
 
+    const toggleSelected = (cardtype) => {
+        setSelectedMethod(cardtype);
+        setPaymentDetails(prevDetails => ({ ...prevDetails, cardtype }));
+    };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("Form submission started");
-        setPaymentDetails(prevDetails => ({ ...prevDetails, cardtype: selectedMethod }));
-        const validationErrors = paymentValidation(paymentDetails);
 
+        const updatedPaymentDetails = { ...paymentDetails, cardtype: selectedMethod };
+        setPaymentDetails(updatedPaymentDetails);
+
+        const validationErrors = paymentValidation(updatedPaymentDetails);
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
         }
 
-        console.log('payment details', paymentDetails);
+        console.log('payment details', updatedPaymentDetails);
 
         try {
-            console.log('Sending payment details:', paymentDetails);
-            const response = await axios.post('http://localhost:8080/payment', paymentDetails);
+            const response = await axios.post('http://localhost:8080/payment', updatedPaymentDetails);
             if (response.status === 200) {
                 navigate('/success');
             } else {
@@ -58,31 +57,26 @@ export default function Payment() {
         }
     };
 
-    const handleSuccess = () => {
-        navigate('/success');
-      };
-
     return (
         <div className='d-flex justify-content-center align-items-center bg-white'>
             <div className='bg-white p-3 row'>
                 <form onSubmit={handleSubmit}>
                     <div className='mb-3'>
                         <label htmlFor='cardNumber'><strong>Credit Card</strong></label>
-                        <input type='text' placeholder='Enter CardNumber' name='cardNumber'
+                        <input type='text' placeholder='Enter Card Number' name='cardNumber'
                                value={paymentDetails.cardNumber} onChange={handleInput} className='form-control rounded'/>
                         {errors.cardNumberError && <span className='text-danger'>{errors.cardNumberError}</span>}
                     </div>
                     <div className='mb-3'>
-                        <label htmlFor='expirationDate'><strong>Expiration</strong></label>
-                        <input type='text' placeholder='Enter Expiration MM/YY' name='expirationDate'
-                               onChange={handleInput} className='form-control rounded'/>
-                        {errors.expirationDateError &&
-                            <span className='text-danger'>{errors.expirationDateError}</span>}
+                        <label htmlFor='expiration'><strong>Expiration</strong></label>
+                        <input type='text' placeholder='Enter Expiration MM/YY' name='expiration'
+                               value={paymentDetails.expiration} onChange={handleInput} className='form-control rounded'/>
+                        {errors.expirationError && <span className='text-danger'>{errors.expirationError}</span>}
                     </div>
                     <div className='mb-3'>
                         <label htmlFor='cvv'><strong>CVV</strong></label>
                         <input type='text' placeholder='Enter CVV' name='cvv'
-                               onChange={handleInput} className='form-control rounded'/>
+                               value={paymentDetails.cvv} onChange={handleInput} className='form-control rounded'/>
                         {errors.cvvError && <span className='text-danger'>{errors.cvvError}</span>}
                     </div>
 

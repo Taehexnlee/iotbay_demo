@@ -7,8 +7,8 @@ const paymentValidation = (paymentDetails) => {
   }
 
   // Validate expiration date
-  if (!paymentDetails.expirationDate || !/^\d{2}\/\d{2}$/.test(paymentDetails.expirationDate)) {
-    errors.expirationDateError = "Invalid expiration date. Format should be MM/YY.";
+  if (!paymentDetails.expiration || !/^\d{2}\/\d{2}$/.test(paymentDetails.expiration)) {
+    errors.expirationError = "Invalid expiration date. Format should be MM/YY.";
   }
 
   // Validate CVV
