@@ -35,7 +35,10 @@ export default function HardwareHome() {
   };
 
   const searchProducts = async (term) => {
-    const filteredProducts = products.filter(product => product.productName.toLowerCase().includes(term.toLowerCase()));
+    const filteredProducts = products.filter(product =>
+        product.productName.toLowerCase().includes(term.toLowerCase()) ||
+        product.productCategory.toLowerCase().includes(term.toLowerCase())
+    );
     setProducts(filteredProducts);
   };
 
@@ -56,11 +59,10 @@ export default function HardwareHome() {
   return (
       <main>
         <body className="mainHomeCSS">
-        <p className="hometext">Hardware Home</p>
+        <p className="hometext">Product Home</p>
         <div className="search-bar">
           <form action="#" onSubmit={(e) => { e.preventDefault(); searchProducts(searchTerm); }}>
             <input type="text" placeholder="Search..." name="search" onChange={handleSearchChange} />
-            <button type="submit">Search</button>
           </form>
         </div>
         <div className="product-grid">
@@ -73,7 +75,8 @@ export default function HardwareHome() {
                 />
                 <div className="product-info">
                   <h3>{product.productName}</h3>
-                  <p>${product.productPrice}</p>
+                  <p>Price: ${product.productPrice}</p>
+                  <p>Category: {product.productCategory}</p>
                   <button onClick={() => addToCart(product.productId, 1)}>
                     Add to Cart
                   </button>

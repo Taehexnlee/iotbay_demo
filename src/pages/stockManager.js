@@ -19,7 +19,8 @@ export default function AdminView() {
         let filteredProducts = [...products];
         if (searchTerm) {
             filteredProducts = filteredProducts.filter(product =>
-                product.productName.toLowerCase().includes(searchTerm.toLowerCase())
+                product.productName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                product.productCategory.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }
         filteredProducts = sortProducts(filteredProducts);
@@ -97,7 +98,7 @@ export default function AdminView() {
                     type="text"
                     placeholder="Search..."
                     value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    onChange={handleSearch}
                 />
                 <Link to="/AddProduct">
                     <button>Add Product</button>

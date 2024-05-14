@@ -71,7 +71,7 @@ const Cart = () => {
       {cartItems.length === 0 ? (
         <p>Your cart is empty</p>
       ) : (
-        <div>
+        <div className="product-grid">
           {cartItems.map((item) => (
             <div key={item.itemId}>
               <p>{item.itemName}</p>
@@ -96,9 +96,11 @@ const Cart = () => {
               .reduce((total, item) => total + item.price * item.quantity, 0)
               .toFixed(2)}
           </p>
+          <div>
           <button onClick={saveOrder}>Save Order</button>
           {/* Use handleProceedToCheckout instead of directly linking */}
           <button onClick={handleProceedToCheckout}>Proceed to Checkout</button>
+          </div>
         </div>
       )}
     </div>
