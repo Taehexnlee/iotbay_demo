@@ -29,6 +29,7 @@ import ViewShipping from './shipping/ViewShipping';
 import Address from './pages/Address';
 import ShipmentHistory from './pages/shipmentHistory';
 import HistoryBranch from './pages/historyBranch';
+import AddProduct from "./pages/AddProduct";
 
 function App() {
   return (
@@ -59,6 +60,7 @@ function App() {
         <Route exact path="/OrderHistory" element={<OrderHistory/>}/>
         <Route exact path="/historyBranch" element={<HistoryBranch/>}/>
         <Route exact path="/shipmentHistory" element={<ShipmentHistory/>}/>
+        <Route exact path="/AddProduct" element={<AddProduct/>}/>
 
 
         <Route exact path="/address" element={<Address/>}/>
