@@ -112,10 +112,10 @@ export default function AdminView() {
                             <button onClick={() => handleSort('name')}>Product Name (sort ↨)</button>
                         </th>
                         <th>
-                            <button onClick={() => handleSort('id')}>Product Code (sort ↨)</button>
+                            <button onClick={() => handleSort('id')}>Product Price (sort ↨)</button>
                         </th>
                         <th>
-                            <button onClick={() => handleSort('price')}>Price (sort ↨)</button>
+                            <button onClick={() => handleSort('price')}>Product Category (sort ↨)</button>
                         </th>
                         <th>
                             <button onClick={() => handleSort('quantity')}>Quantity (sort ↨)</button>
@@ -128,8 +128,8 @@ export default function AdminView() {
                     {displayedProducts.map(product => (
                         <tr key={product.productId}>
                             <td>{product.productName}</td>
-                            <td>{product.productId}</td>
                             <td>{product.productPrice}</td>
+                            <td>{product.productCategory}</td>
                             <td>
                                 <input
                                     type="number"

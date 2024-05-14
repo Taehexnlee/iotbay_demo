@@ -81,18 +81,9 @@ export default function AddProduct() {
                         required
                     />
                 </label>
-                <label>
-                    Stock on Order (SOO):
-                    <input
-                        type="number"
-                        value={soo}
-                        onChange={e => setSoo(e.target.value)}
-                        required
-                    />
-                </label>
                 <button type="submit">Add Product</button>
             </form>
-            <Link to="/">Back to Admin View</Link>
+            <Link to="/stockManager">Back to Manage Page</Link>
         </div>
     );
 }

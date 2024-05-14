@@ -34,8 +34,7 @@ const Navbar = () => {
             </div>
             <section className="page-links">
                 <Link to="/">Home</Link>
-                <Link to="/hardwareHome">Hardware Products</Link>
-                <Link to="/softwareHome">Software Products</Link>
+                <Link to="/hardwareHome">Products</Link>
                 <Link to="/aboutUs">About us</Link>
                 <Link to="/Cart">Cart</Link>
                 <Link to="/OrderHistory">Order History</Link>
