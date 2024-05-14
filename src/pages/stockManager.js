@@ -48,6 +48,7 @@ export default function AdminView() {
                     product.productId === productId ? { ...product, soh: newQuantity } : product
                 );
                 setProducts(updatedProducts);
+                alert("Update successfully!");
             } else {
                 throw new Error("Failed to update stock");
             }
