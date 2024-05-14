@@ -62,6 +62,8 @@ const Logs = () => {
   };
 
   return (
+    <main>
+      <body>
     <div>
       <h1 style={{ marginBottom: "50px" }}>User Logs</h1>
       <div>
@@ -91,6 +93,19 @@ const Logs = () => {
         </ul>
       </div>
     </div>
+    </body>
+      <footer className="site-footer">
+        <div className="footer-content">
+          <p>&copy; 2024 ISD Vantablack</p>
+          <ul className="footer-links">
+            <li><a href="/aboutus">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="/adminPage">Admin Login</a></li>
+          </ul>
+        </div>
+      </footer>
+    </main>
   );
 };
 
