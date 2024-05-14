@@ -36,9 +36,6 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
                 <Link to="/hardwareHome">Products</Link>
                 <Link to="/aboutUs">About us</Link>
-                <Link to="/Cart">Cart</Link>
-                <Link to="/OrderHistory">Order History</Link>
-                <Link to="/PaymentPage">Payment</Link>
             </section>
             <ul className="auth-buttons">
                 {!isAuthenticated() ? (
@@ -53,16 +50,12 @@ const Navbar = () => {
                 ) : (
                     <>
                         <li>
-                            <Link to="/PaymentPage"className="login-button view-account-button">Payment</Link>
+                            <Link to="/accountPage"className="login-button view-account-button">My Account</Link>
+
                         </li>
                         <li>
-                            <Link to="/view" className="login-button view-account-button">My Account</Link>
-                        </li>
-                        <li>
-                            <Link to="/edit" className="login-button edit-account-button">Edit Account</Link>
-                        </li>
-                        <li>
-                            <Link to="/logs" className="login-button view-logs-button">View Logs</Link>
+                            {/* <Link to="/address" className="login-button view-logs-button">Address</Link> */}
+                            <Link to="/Cart" className="login-button view-logs-button">Cart</Link>
                         </li>
                         <li>
                             <button onClick={handleLogout} className="login-button logout-button">Logout</button>
@@ -73,5 +66,6 @@ const Navbar = () => {
         </nav>
     );
 };
+ 
 
 export default Navbar;

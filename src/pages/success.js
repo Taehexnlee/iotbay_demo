@@ -10,7 +10,8 @@ export default function PaymentSuccess() {
         </header>
 
         <main>
-          <p class="hometext">Payment Success!</p>
+          <p class="hometext">Saving details successful!</p>
+          <Link to="/accountPage" className="btn btn-success w-100">Go back to My Account</Link>
         </main>
 
       </div>
