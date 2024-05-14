@@ -597,3 +597,41 @@ background: rgba(0, 0, 0, 0.5);
 .history-branch-body {
   margin-top: 100px; /* Adjust as needed */
 }
+
+/* Product Grid Layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Individual Product Styling */
+.product {
+  text-align: center;
+  justify-content: center;
+  place-items: center;
+  max-width: 280px; /* Adjust the value to your preference */
+  margin: 0 auto;    /* Center the container horizontally within the grid cell */
+}
+
+/* Product Image Styling */
+.product-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid black;
+}
+
+/* Add this for responsive behavior */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
