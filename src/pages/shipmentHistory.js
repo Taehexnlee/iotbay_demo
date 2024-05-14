@@ -5,19 +5,11 @@ const shipmentHistory = () => {
 
     return (
         <div className="order-details">
-            <h2>Payment History</h2>
+            <h2>Shipment History</h2>
                 <div className="order-info">
-                    <p>Order Info</p>
+                    <p>POSSIBLY TO BE DONE</p>
                 </div>
-                <div className="delivery-info">
-                    <p>Delivery Info</p>
-                </div>
-                <div className="item-info">
-                    <p>Item Info</p>
-                </div>
-                <div className="payment-info">
-                    <p>Payment Info</p>
-                </div>
+                
         </div>
     );
 };
