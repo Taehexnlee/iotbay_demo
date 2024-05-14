@@ -41,6 +41,13 @@ const Navbar = () => {
                 {!isAuthenticated() ? (
                     <>
                         <li>
+                            {/* <Link to="/address" className="login-button view-logs-button">Address</Link> */}
+                            <Link to="/Cart" className="login-button view-logs-button">Cart</Link>
+                        </li>
+                        <li>
+                        <Link to="/historyBranch" className="register-button">History</Link>
+                        </li>
+                        <li>
                             <Link to="/login" className="login-button">Log in</Link>
                         </li>
                         <li>
@@ -50,13 +57,17 @@ const Navbar = () => {
                 ) : (
                     <>
                         <li>
-                            <Link to="/accountPage"className="login-button view-account-button">My Account</Link>
-
-                        </li>
-                        <li>
                             {/* <Link to="/address" className="login-button view-logs-button">Address</Link> */}
                             <Link to="/Cart" className="login-button view-logs-button">Cart</Link>
                         </li>
+                        <li>
+                        <Link to="/historyBranch" className="register-button">History</Link>
+                        </li>
+                        <li>
+                            <Link to="/accountPage"className="login-button view-account-button">My Account</Link>
+
+                        </li>
+                        
                         <li>
                             <button onClick={handleLogout} className="login-button logout-button">Logout</button>
                         </li>

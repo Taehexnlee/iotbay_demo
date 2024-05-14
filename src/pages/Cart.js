@@ -58,9 +58,24 @@ const Cart = () => {
     }
   };
 
+  const proceedOrder = async () => {
+    try {
+      const submissionTime = new Date().toString(); // Get current time
+      console.log("cart items:", cartItems);
+      console.log("time:", submissionTime);
+      await axios.post("http://localhost:8080/order/save", {
+        cartItems: cartItems,
+        submissionTime: submissionTime, // Send submission time
+      });
+    } catch (error) {
+      console.error("Failed to save order:", error);
+      alert("Failed to save order. Please try again later.");
+    }
+  };
+
   const handleProceedToCheckout = async () => {
     // Call saveOrder before proceeding to checkout
-    await saveOrder();
+    await proceedOrder();
     // Redirect to the payment page
     window.location.href = "/PaymentAdd";
   };
