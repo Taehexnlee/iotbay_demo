@@ -30,6 +30,8 @@ import Address from './pages/Address';
 import ShipmentHistory from './pages/shipmentHistory';
 import HistoryBranch from './pages/historyBranch';
 import AddProduct from "./pages/AddProduct";
+import EditOrder from "./pages/EditOrder";
+
 
 function App() {
   return (
@@ -62,6 +64,7 @@ function App() {
         <Route exact path="/shipmentHistory" element={<ShipmentHistory/>}/>
         <Route exact path="/AddProduct" element={<AddProduct/>}/>
 
+        <Route path="/EditOrder/:orderId/edit" element={<EditOrder />} />
 
         <Route exact path="/address" element={<Address/>}/>
         <Route exact path='/addaddress' element={<AddShipping/>}/>
