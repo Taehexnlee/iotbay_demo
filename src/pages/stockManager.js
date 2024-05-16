@@ -40,20 +40,21 @@ export default function AdminView() {
         }
     };
 
-    const updateStock = async (productId, newQuantity) => {
+    const updateProduct = async (product) => {
         try {
-            const response = await axios.put(`http://localhost:8080/products/${productId}/stock`, { quantity: newQuantity });
+            const response = await axios.put(`http://localhost:8080/products/${product.productId}`, product);
             if (response.status === 200) {
-                const updatedProducts = products.map(product =>
-                    product.productId === productId ? { ...product, soh: newQuantity } : product
+                const updatedProducts = products.map(p =>
+                    p.productId === product.productId ? product : p
                 );
                 setProducts(updatedProducts);
                 alert("Update successfully!");
             } else {
-                throw new Error("Failed to update stock");
+                throw new Error("Failed to update product");
             }
         } catch (error) {
-            console.error("Failed to update stock:", error);
+            console.error("Failed to update product:", error);
+            alert("Update failed!");
         }
     };
 
@@ -88,6 +89,12 @@ export default function AdminView() {
         });
     };
 
+    const handleInputChange = (e, product, key) => {
+        const newValue = key === 'productPrice' ? parseFloat(e.target.value) : e.target.value;
+        const updatedProduct = { ...product, [key]: newValue };
+        setProducts(products.map(p => p.productId === product.productId ? updatedProduct : p));
+    };
+
     return (
         <main>
             <body className='bodymainCSS'>
@@ -111,37 +118,55 @@ export default function AdminView() {
                     <thead>
                     <tr>
                         <th>
-                            <button onClick={() => handleSort('name')}>Product Name (sort ↨)</button>
+                            <button onClick={() => handleSort('productName')}>Product Name (sort ↨)</button>
                         </th>
                         <th>
-                            <button onClick={() => handleSort('id')}>Product Price (sort ↨)</button>
+                            <button onClick={() => handleSort('productPrice')}>Product Price (sort ↨)</button>
                         </th>
                         <th>
-                            <button onClick={() => handleSort('price')}>Product Category (sort ↨)</button>
+                            <button onClick={() => handleSort('productCategory')}>Product Category (sort ↨)</button>
                         </th>
                         <th>
-                            <button onClick={() => handleSort('quantity')}>Quantity (sort ↨)</button>
+                            <button onClick={() => handleSort('soh')}>Quantity (sort ↨)</button>
                         </th>
-                        <th>Add to website</th>
-                        <th>Delete from website</th>
+                        <th>Update</th>
+                        <th>Delete</th>
                     </tr>
                     </thead>
                     <tbody>
                     {displayedProducts.map(product => (
                         <tr key={product.productId}>
-                            <td>{product.productName}</td>
-                            <td>{product.productPrice}</td>
-                            <td>{product.productCategory}</td>
+                            <td>
+                                <input
+                                    type="text"
+                                    value={product.productName}
+                                    onChange={(e) => handleInputChange(e, product, 'productName')}
+                                />
+                            </td>
                             <td>
                                 <input
                                     type="number"
-                                    defaultValue={product.soh}
-                                    onChange={(e) => product.soh = e.target.value}
+                                    value={product.productPrice}
+                                    onChange={(e) => handleInputChange(e, product, 'productPrice')}
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    type="text"
+                                    value={product.productCategory}
+                                    onChange={(e) => handleInputChange(e, product, 'productCategory')}
+                                />
+                            </td>
+                            <td>
+                                <input
+                                    type="number"
+                                    value={product.soh}
+                                    onChange={(e) => handleInputChange(e, product, 'soh')}
                                 />
                             </td>
                             <td>
                                 <button
-                                    onClick={() => updateStock(product.productId, product.soh)}
+                                    onClick={() => updateProduct(product)}
                                 >
                                     Update
                                 </button>
